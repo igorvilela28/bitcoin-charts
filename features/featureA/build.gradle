@@ -1,4 +1,4 @@
-apply plugin: 'com.android.application'
+apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-parcelize'
 apply plugin: 'kotlin-kapt'
@@ -8,7 +8,6 @@ android {
     buildToolsVersion AppConfig.buildToolsVersion
 
     defaultConfig {
-        applicationId AppConfig.applicationId
         minSdkVersion AppConfig.minSdkVersion
         targetSdkVersion AppConfig.targetSdkVersion
         versionCode AppConfig.versionCode
@@ -33,8 +32,6 @@ android {
 }
 
 dependencies {
-    implementation project(Modules.coreData)
-    implementation project(Modules.featureA)
 
     implementation Libs.kotlin
     implementation Libs.coroutines

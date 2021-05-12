@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import com.igorvd.baseapp.core.data.DataTest
+import com.igorvd.baseapp.core.domain.DomainTest
+import com.igorvd.baseapp.core.presentation.PresentationTest
 import com.igorvd.baseapp.features.featureA.FeatureAActivity
 
 class MainActivity : AppCompatActivity() {
@@ -12,8 +14,9 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val intent = FeatureAActivity.newIntent(this)
-        Log.d("Igor", "testing data: ${DataTest.helloWorld}")
+        Log.d("Igor", "testing data:         ${DataTest.helloWorld}")
+        Log.d("Igor", "testing domain:       ${DomainTest.helloWorld}")
+        Log.d("Igor", "testing presentation: ${PresentationTest.helloWorld}")
         startActivity(intent)
-
     }
 }

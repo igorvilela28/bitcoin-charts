@@ -22,3 +22,5 @@ allprojects {
 tasks.register("clean", Delete::class) {
     delete(rootProject.buildDir)
 }
+
+apply(from = "$rootDir/tools/mergeReports.gradle")

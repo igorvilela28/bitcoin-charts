@@ -1,7 +1,7 @@
 buildscript {
     repositories {
         google()
-        jcenter()
+        mavenCentral()
     }
     dependencies {
         classpath("com.android.tools.build:gradle:${Versions.agpPlugin}")
@@ -15,7 +15,7 @@ allprojects {
         maven { url = uri("https://maven.fabric.io/public") }
         maven { url = uri("https://jitpack.io") }
         google()
-        jcenter()
+        mavenCentral()
     }
 }
 

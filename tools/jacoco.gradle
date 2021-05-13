@@ -7,7 +7,8 @@ task jacocoTestReport(type: JacocoReport, dependsOn: ['testDebugUnitTest', 'crea
     def kotlinDebugTree = fileTree(dir: "build/tmp/kotlin-classes/debug", excludes: project.coverageExcludes)
     classDirectories.setFrom(files([kotlinDebugTree]))
 
-    def coverageSourceDirs = ['src/main/java/**']
+    def coverageSourceDirs = ['src/main/java']
+    println(coverageSourceDirs)
     additionalSourceDirs.setFrom(files(coverageSourceDirs))
     sourceDirectories.setFrom(files(coverageSourceDirs))
 

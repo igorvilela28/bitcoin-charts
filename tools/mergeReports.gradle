@@ -3,14 +3,18 @@ apply from: "$rootDir/tools/common-jacoco.gradle"
 def coverageSourceDirs = []
 def taskList = []
 def coverageClassDirectories = []
-def modulesList = [Modules.app, Modules.coreDomain, Modules.corePresentation, Modules.coreDomain,
+def modulesList = [Modules.app, Modules.coreData, Modules.coreDomain, Modules.corePresentation,
                    Modules.featureA]
 def executionDataList = []
 
 modulesList.each { module ->
     taskList.add("$module:jacocoTestReport")
-    coverageSourceDirs.add("$module/src/main/java")
-    coverageClassDirectories.add(fileTree(dir: "$module/build/tmp/kotlin-classes/debug", excludes: project.coverageExcludes))
+    def modulePath = module.replace(":", "/")
+    if (modulePath.startsWith("/")) {
+        modulePath = modulePath.drop(1)
+    }
+    coverageSourceDirs.add("$modulePath/src/main/java")
+    coverageClassDirectories.add(fileTree(dir: "$modulePath/build/tmp/kotlin-classes/debug", excludes: project.coverageExcludes))
 }
 
 task jacocoMergeReport(type: JacocoReport) {

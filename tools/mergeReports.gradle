@@ -1,22 +1,4 @@
-apply plugin: 'jacoco'
-
-def coverageExcludes = [
-        '**/R.class',
-        '**/R$*.class',
-        '**/BuildConfig.*',
-        '**/Manifest*.*',
-        '**/*Test*.*',
-        'android/**/*.*',
-        '**/*$ViewInjector*.*',
-        '**/*$ViewBinder*.*',
-        '**/*$Lambda$*.*', // Jacoco can not handle several "$" in class name.
-        '**/*$inlined$*.*', // Kotlin specific, Jacoco can not handle several "$" in class name.
-        '**/*Module.*', // Modules for Dagger.
-        '**/*Dagger*.*', // Dagger auto-generated code.
-        '**/*MembersInjector*.*', // Dagger auto-generated code.
-        '**/*__MembersInjector',
-        '**/*_Provide*Factory*.*'
-]
+apply from: "$rootDir/tools/common-jacoco.gradle"
 
 def coverageSourceDirs = []
 def taskList = []
@@ -25,15 +7,10 @@ def modulesList = [Modules.app, Modules.coreDomain, Modules.corePresentation, Mo
                    Modules.featureA]
 def executionDataList = []
 
-jacoco {
-    toolVersion = "0.8.7"
-}
-
 modulesList.each { module ->
     taskList.add("$module:jacocoTestReport")
     coverageSourceDirs.add("$module/src/main/java")
-    //coverageClassDirectories.add(fileTree(dir: "$module/build/intermediates/classes/bahia/debug", excludes: coverageExcludes))//Apenas para java
-    coverageClassDirectories.add(fileTree(dir: "$module/build/tmp/kotlin-classes/debug", excludes: coverageExcludes))
+    coverageClassDirectories.add(fileTree(dir: "$module/build/tmp/kotlin-classes/debug", excludes: project.coverageExcludes))
 }
 
 task jacocoMergeReport(type: JacocoReport) {

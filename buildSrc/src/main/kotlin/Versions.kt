@@ -7,11 +7,15 @@ object Versions {
 
     const val appcompat = "1.2.0"
     const val coreKtx = "1.3.2"
+
     const val constraintLayout = "2.0.4"
     const val material = "1.3.0"
 
+    const val activityKtx = "1.2.3"
+    const val fragmentktx = "1.3.4"
     const val lifecycle = "2.3.1"
     const val hilt = "2.35.1"
+    const val hiltLifecycle = "1.0.0-alpha03"
 
     const val retrofit = "2.9.0"
     const val okHttp = "4.9.1"

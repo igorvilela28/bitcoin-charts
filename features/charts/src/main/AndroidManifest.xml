@@ -3,7 +3,7 @@
     package="com.igorvd.bitcoincharts.features.charts" >
 
     <application >
-        <activity android:name=".ChartsHomeActivity" >
+        <activity android:name=".presentation.ChartsHomeActivity" >
         </activity>
     </application>
 

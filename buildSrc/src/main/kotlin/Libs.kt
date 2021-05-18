@@ -12,12 +12,17 @@ object Libs {
         "androidx.constraintlayout:constraintlayout:${Versions.constraintLayout}"
 
     //androidX
+    const val activityKtx = "androidx.activity:activity-ktx:${Versions.activityKtx}"
+    const val fragmentKtx = "androidx.fragment:fragment-ktx:${Versions.fragmentktx}"
     const val viewModel = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.lifecycle}"
+    const val viewModelKtx = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.lifecycle}"
     const val lifeCycle = "androidx.lifecycle:lifecycle-runtime-ktx:${Versions.lifecycle}"
 
     //dependency injection
     const val hilt = "com.google.dagger:hilt-android:${Versions.hilt}"
     const val hiltCompiler = "com.google.dagger:hilt-android-compiler:${Versions.hilt}"
+    const val hiltLifecycleViewModel = "androidx.hilt:hilt-lifecycle-viewmodel:${Versions.hiltLifecycle}"
+    const val hiltLifecycleCompiler = "androidx.hilt:hilt-compiler:${Versions.hiltLifecycle}"
 
     //networking
     const val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"

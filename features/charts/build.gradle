@@ -2,20 +2,30 @@ apply from: "$rootDir/buildsystem/android-library.gradle"
 
 dependencies {
 
+    implementation project(Modules.coreData)
+    implementation project(Modules.coreDomain)
+    implementation project(Modules.corePresentation)
+
     implementation Libs.kotlin
     implementation Libs.coroutines
     implementation Libs.coroutinesAndroid
 
+    implementation Libs.coreKtx
+    implementation Libs.activityKtx
+    implementation Libs.fragmentKtx
     implementation Libs.coreKtx
     implementation Libs.appCompat
     implementation Libs.material
     implementation Libs.constraintLayout
 
     implementation Libs.viewModel
+    implementation Libs.viewModelKtx
     implementation Libs.lifeCycle
 
     implementation Libs.hilt
     kapt Libs.hiltCompiler
+    implementation Libs.hiltLifecycleViewModel
+    kapt Libs.hiltLifecycleCompiler
 
     implementation Libs.retrofit
     implementation Libs.retrofitMoshiConverter

@@ -10,6 +10,8 @@ dependencies {
     kapt Libs.hiltCompiler
 
     implementation Libs.retrofit
+    implementation Libs.retrofitMoshiConverter
+    implementation Libs.okHttpLoggingInterceptor
 
     testImplementation TestLibs.jUnit
     testImplementation TestLibs.mockk

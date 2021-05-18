@@ -1,14 +1,15 @@
-
 object Libs {
-    const val kotlin =  "org.jetbrains.kotlin:kotlin-stdlib:${Versions.kotlin}"
+    const val kotlin = "org.jetbrains.kotlin:kotlin-stdlib:${Versions.kotlin}"
     const val coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.coroutines}"
-    const val coroutinesAndroid = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutines}"
+    const val coroutinesAndroid =
+        "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutines}"
 
     //ui
-    const val coreKtx =  "androidx.core:core-ktx:${Versions.coreKtx}"
-    const val appCompat =  "androidx.appcompat:appcompat:${Versions.appcompat}"
-    const val material =  "com.google.android.material:material:${Versions.material}"
-    const val constraintLayout =  "androidx.constraintlayout:constraintlayout:${Versions.constraintLayout}"
+    const val coreKtx = "androidx.core:core-ktx:${Versions.coreKtx}"
+    const val appCompat = "androidx.appcompat:appcompat:${Versions.appcompat}"
+    const val material = "com.google.android.material:material:${Versions.material}"
+    const val constraintLayout =
+        "androidx.constraintlayout:constraintlayout:${Versions.constraintLayout}"
 
     //androidX
     const val viewModel = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.lifecycle}"
@@ -20,6 +21,8 @@ object Libs {
 
     //networking
     const val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
+    const val retrofitMoshiConverter = "com.squareup.retrofit2:converter-moshi:${Versions.retrofit}"
+    const val okHttpLoggingInterceptor = "com.squareup.okhttp3:logging-interceptor:${Versions.okHttp}"
 }
 
 object TestLibs {

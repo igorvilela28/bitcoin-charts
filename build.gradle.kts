@@ -11,6 +11,10 @@ buildscript {
     }
 }
 
+plugins {
+    id("io.gitlab.arturbosch.detekt") version Versions.detekt
+}
+
 allprojects {
     repositories {
         maven { url = uri("https://maven.fabric.io/public") }

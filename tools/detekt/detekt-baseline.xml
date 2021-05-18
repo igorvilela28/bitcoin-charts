@@ -1,0 +1,136 @@
+<?xml version="1.0" ?>
+<SmellBaseline>
+  <Blacklist></Blacklist>
+  <Whitelist>
+    <ID>UnnecessaryParentheses:InvestmentsHomeFragment.kt$InvestmentsHomeFragment$((Integer.MAX_VALUE / 2) % (if (highlightStocksAdapter.contentList.isEmpty()) 1 else highlightStocksAdapter.contentList.size))</ID>
+    <ID>UnnecessaryParentheses:InvestmentsHomeFragment.kt$InvestmentsHomeFragment$(Integer.MAX_VALUE / 2 - ((Integer.MAX_VALUE / 2) % (if (highlightStocksAdapter.contentList.isEmpty()) 1 else highlightStocksAdapter.contentList.size)))</ID>
+    <ID>UnnecessaryParentheses:InvestmentsHomeFragment.kt$InvestmentsHomeFragment$(Integer.MAX_VALUE / 2)</ID>
+    <ID>UnnecessaryParentheses:InvestmentsHomeFragment.kt$InvestmentsHomeFragment$(if (highlightStocksAdapter.contentList.isEmpty()) 1 else highlightStocksAdapter.contentList.size)</ID>
+    <ID>UnnecessaryParentheses:HomeBrokerViewSection.kt$HomeBrokerViewSection$((Integer.MAX_VALUE / 2) % (if (highlightStocksAdapter.contentList.isEmpty()) 1 else highlightStocksAdapter.contentList.size))</ID>
+    <ID>UnnecessaryParentheses:HomeBrokerViewSection.kt$HomeBrokerViewSection$((Integer.MAX_VALUE / 2) - ((Integer.MAX_VALUE / 2) % (if (highlightStocksAdapter.contentList.isEmpty()) 1 else highlightStocksAdapter.contentList.size)))</ID>
+    <ID>UnnecessaryParentheses:HomeBrokerViewSection.kt$HomeBrokerViewSection$(Integer.MAX_VALUE / 2)</ID>
+    <ID>UnnecessaryParentheses:HomeBrokerViewSection.kt$HomeBrokerViewSection$(if (highlightStocksAdapter.contentList.isEmpty()) 1 else highlightStocksAdapter.contentList.size)</ID>
+    <ID>UnnecessaryParentheses:InterInvestmentsThermometerView.kt$InterInvestmentsThermometerView$((markGap * i) + i + markSize)</ID>
+    <ID>UnnecessaryParentheses:InterInvestmentsThermometerView.kt$InterInvestmentsThermometerView$(2 * MAX_THERMOMETER_RADIUS)</ID>
+    <ID>UnnecessaryParentheses:InterInvestmentsThermometerView.kt$InterInvestmentsThermometerView$(2 * SHADOW_RADIUS)</ID>
+    <ID>UnnecessaryParentheses:InterInvestmentsThermometerView.kt$InterInvestmentsThermometerView$(height / 2)</ID>
+    <ID>UnnecessaryParentheses:InterInvestmentsThermometerView.kt$InterInvestmentsThermometerView$(markGap * i)</ID>
+    <ID>UnnecessaryParentheses:InterInvestmentsThermometerView.kt$InterInvestmentsThermometerView$(size / 2)</ID>
+    <ID>UnnecessaryParentheses:InterInvestmentsThermometerView.kt$InterInvestmentsThermometerView$(width / marksCount)</ID>
+    <ID>UnnecessaryParentheses:TextDrawable.kt$TextDrawable$((chipIconSize / 1.2).toFloat())</ID>
+    <ID>UnnecessaryParentheses:TextDrawable.kt$TextDrawable$((chipIconSize / 1.5).toFloat())</ID>
+    <ID>UnnecessaryParentheses:HomeBrokerViewSection.kt$HomeBrokerViewSection$( if (highlightStocksAdapter.contentList.isEmpty()) 1 else highlightStocksAdapter.contentList.size)</ID>
+    <ID>UnnecessaryParentheses:HomeBrokerViewSection.kt$HomeBrokerViewSection$((Integer.MAX_VALUE / 2) % ( if (highlightStocksAdapter.contentList.isEmpty()) 1 else highlightStocksAdapter.contentList.size))</ID>
+    <ID>UnnecessaryParentheses:HomeBrokerViewSection.kt$HomeBrokerViewSection$((Integer.MAX_VALUE / 2) - ((Integer.MAX_VALUE / 2) % ( if (highlightStocksAdapter.contentList.isEmpty()) 1 else highlightStocksAdapter.contentList.size)))</ID>
+    <ID>UnnecessaryParentheses:HomeBrokerViewSection.kt$HomeBrokerViewSection$(Integer.MAX_VALUE / 2)</ID>
+    <ID>UnnecessaryParentheses:InterInvestmentsThermometerView.kt$InterInvestmentsThermometerView$((markGap * i) + i + markSize)</ID>
+    <ID>UnnecessaryParentheses:InterInvestmentsThermometerView.kt$InterInvestmentsThermometerView$(2 * MAX_THERMOMETER_RADIUS)</ID>
+    <ID>UnnecessaryParentheses:InterInvestmentsThermometerView.kt$InterInvestmentsThermometerView$(2 * SHADOW_RADIUS)</ID>
+    <ID>UnnecessaryParentheses:InterInvestmentsThermometerView.kt$InterInvestmentsThermometerView$(height / 2)</ID>
+    <ID>UnnecessaryParentheses:InterInvestmentsThermometerView.kt$InterInvestmentsThermometerView$(markGap * i)</ID>
+    <ID>UnnecessaryParentheses:InterInvestmentsThermometerView.kt$InterInvestmentsThermometerView$(size / 2)</ID>
+    <ID>UnnecessaryParentheses:InterInvestmentsThermometerView.kt$InterInvestmentsThermometerView$(width / marksCount)</ID>
+    <ID>UnnecessaryParentheses:InvestmentsHomeFragment.kt$InvestmentsHomeFragment$( if (highlightStocksAdapter.contentList.isEmpty()) 1 else highlightStocksAdapter.contentList.size)</ID>
+    <ID>UnnecessaryParentheses:InvestmentsHomeFragment.kt$InvestmentsHomeFragment$((Integer.MAX_VALUE / 2) % ( if (highlightStocksAdapter.contentList.isEmpty()) 1 else highlightStocksAdapter.contentList.size))</ID>
+    <ID>UnnecessaryParentheses:InvestmentsHomeFragment.kt$InvestmentsHomeFragment$(Integer.MAX_VALUE / 2 - ((Integer.MAX_VALUE / 2) % ( if (highlightStocksAdapter.contentList.isEmpty()) 1 else highlightStocksAdapter.contentList.size)))</ID>
+    <ID>UnnecessaryParentheses:InvestmentsHomeFragment.kt$InvestmentsHomeFragment$(Integer.MAX_VALUE / 2)</ID>
+    <ID>UnnecessaryParentheses:TextDrawable.kt$TextDrawable$((chipIconSize / 1.2).toFloat())</ID>
+    <ID>UnnecessaryParentheses:TextDrawable.kt$TextDrawable$((chipIconSize / 1.5).toFloat())</ID>
+    <ID>UnusedPrivateMember:HorizontalPagerIndicatorDecoration.kt$HorizontalPagerIndicatorDecoration$i</ID>
+    <ID>UnusedPrivateMember:WalletViewModel.kt$WalletViewModel$it: Item</ID>
+    <ID>UnusedPrivateMember:FixedIncomeDetailViewModel.kt$FixedIncomeDetailViewModel$details: Detail</ID>
+    <ID>UnusedPrivateMember:FixedIncomeDetailViewModel.kt$FixedIncomeDetailViewModel$note: Note</ID>
+    <ID>UnusedPrivateMember:FundsDetailViewModel.kt$FundsDetailViewModel$detail: Detail</ID>
+    <ID>UnusedPrivateMember:InterFilterCustomView.kt$InterFilterCustomView$attrs: AttributeSet? = null</ID>
+    <ID>MaxLineLength:InvestmentsStatementFragment.kt$InvestmentsStatementFragment$InvestmentsStatementFragmentDirections .actionInvestmentsStatementHomeFragmentToInvestmentsStatementVariableIncomeDetailFragment( product = product.originalProductModel, paper = it, index = position )</ID>
+    <ID>EmptyFunctionBlock:HomeState.kt$HomeState.&lt;no name provided&gt;${ }</ID>
+    <ID>EmptyFunctionBlock:HomeState.kt$HomeState.&lt;no name provided&gt;${}</ID>
+    <ID>EmptyFunctionBlock:OnBoardingFragment.kt$OnBoardingFragment.&lt;no name provided&gt;${}</ID>
+    <ID>EmptyFunctionBlock:CommunityOnboardingFragment.kt$CommunityOnboardingFragment.&lt;no name provided&gt;${ }</ID>
+    <ID>EmptyFunctionBlock:InvitationsCommunityBottomSheetFragment.kt$InvitationsCommunityBottomSheetFragment.&lt;no name provided&gt;${}</ID>
+    <ID>EmptyFunctionBlock:RiskSeekBarFilter.kt$RiskSeekBarFilter.&lt;no name provided&gt;${}</ID>
+    <ID>EmptyFunctionBlock:ItemMoveCallback.kt$ItemMoveCallback${}</ID>
+    <ID>EmptyFunctionBlock:PdfViewerFragment.kt$PdfViewerFragment${ }</ID>
+    <ID>LongParameterList:RiskSeekBarFilter.kt$RiskSeekBarFilter$( canvas: Canvas, left: Float, top: Float, right: Float, bottom: Float, startAngle: Float, sweepAngle: Float )</ID>
+    <ID>ComplexMethod:InvestmentsAssetsEvolutionState.kt$InvestmentsAssetsEvolutionState$private fun observer(fragment: Fragment)</ID>
+    <ID>ComplexMethod:HomeState.kt$HomeState$private fun observer(fragment: Fragment)</ID>
+    <ID>ComplexMethod:InvestmentsTotalInvestedState.kt$InvestmentsTotalInvestedState$private fun compressGraph(fragment: Fragment)</ID>
+    <ID>ComplexMethod:InvestmentsTotalInvestedState.kt$InvestmentsTotalInvestedState$private fun observer(fragment: Fragment)</ID>
+    <ID>ComplexMethod:InvestmentsHomeFragment.kt$InvestmentsHomeFragment$private fun inscribeObservers()</ID>
+    <ID>ComplexMethod:InvestmentsHomeFragment.kt$InvestmentsHomeFragment$private fun handlerEmptyWallet(isEmptyWallet: Boolean)</ID>
+    <ID>ComplexMethod:BannerViewAdapter.kt$BannerViewAdapter.ViewHolder$fun bind(item: BannerViewModel)</ID>
+    <ID>ComplexMethod:WalletAdapter.kt$WalletAdapter$override fun onBindViewHolder(holder: WalletItemViewHolder, position: Int)</ID>
+    <ID>ComplexMethod:ApplyFixedIncomeViewModel.kt$ApplyFixedIncomeViewModel$private fun handleConfigTerms(event: Event&lt;ClientSettingsModel&gt;)</ID>
+    <ID>ComplexMethod:FixedIncomeProductAdapter.kt$FixedIncomeProductAdapter$override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int)</ID>
+    <ID>ComplexMethod:FixedIncomeNotesDetailAdapter.kt$FixedIncomeNotesDetailAdapter$override fun onBindViewHolder(holder: ViewHolder, position: Int)</ID>
+    <ID>ComplexMethod:InvestmentsHomeViewModel.kt$InvestmentsHomeViewModel$private fun createInvestmentBalance( serviceUnavailable: Boolean, positionModel: ConsolidatedPositionModel ): InvestmentBalance</ID>
+    <ID>ComplexMethod:RiskSeekBarFilter.kt$RiskSeekBarFilter$@Synchronized override fun onDraw(canvas: Canvas)</ID>
+    <ID>ComplexMethod:CommunityHighlightAdapter.kt$CommunityHighlightAdapter.ViewHolder$fun bind(item: Item)</ID>
+    <ID>ComplexMethod:InvestmentsStatementStatusOrdersInTransitAdapter.kt$InvestmentsStatementStatusOrdersInTransitAdapter.ViewHolder$fun bindView(item: TransportationStatusItem, isLast: Boolean)</ID>
+    <ID>ComplexMethod:InvestmentHighlightFragment.kt$InvestmentHighlightFragment$override fun onViewCreated(view: View, savedInstanceState: Bundle?)</ID>
+    <ID>ComplexMethod:InvestmentsStatementProductAdapter.kt$InvestmentsStatementProductAdapter.ViewHolder$fun bind(item: InvestmentStatementProductItem)</ID>
+    <ID>ComplexMethod:InvestmentsStatementFragment.kt$InvestmentsStatementFragment$private fun inscribeObservers()</ID>
+    <ID>ComplexMethod:FixedIncomeDetailAdapter.kt$FixedIncomeDetailAdapter$override fun onBindViewHolder(holder: ViewHolder, position: Int)</ID>
+    <ID>ComplexMethod:InvestmentsSuggestionsProductsAdapter.kt$InvestmentsSuggestionsProductsAdapter.FixedIncomeViewHolder$override fun bindView(item: ProductInvestmentItem, clickAction: ClickActionList&lt;ProductInvestmentItem&gt;)</ID>
+    <ID>ComplexMethod:FundsListAdapter.kt$FundsListAdapter.ViewHolder$fun bind(item: FundDetailModel)</ID>
+    <ID>ComplexMethod:InvestmentsSuggestionsProductsAdapter.kt$InvestmentsSuggestionsProductsAdapter.FixedIncomeViewHolder$override fun bindView(item: ProductInvestmentItem, clickAction: ClickActionList&lt;ProductInvestmentItem&gt;)</ID>
+    <ID>ComplexMethod:SectionItemHolder.kt$SectionItemHolder$override fun bind(viewHolder: ViewHolder, position: Int)</ID>
+    <ID>ComplexMethod:SectionItemHolder.kt$SectionItemHolder$override fun bind(viewHolder: ViewHolder, position: Int)</ID>
+    <ID>ComplexMethod:ViewHolderCdb.kt$ViewHolderCdb$override fun bind(item: InvestmentsStatementFixedIncomeDetailItem)</ID>
+    <ID>ComplexMethod:ViewHolderCriCra.kt$ViewHolderCriCra$override fun bind(item: InvestmentsStatementFixedIncomeDetailItem)</ID>
+    <ID>ComplexMethod:ViewHolderDebentures.kt$ViewHolderDebentures$override fun bind(item: InvestmentsStatementFixedIncomeDetailItem)</ID>
+    <ID>ComplexMethod:ViewHolderDirectTreasure.kt$ViewHolderDirectTreasure$override fun bind(item: InvestmentsStatementFixedIncomeDetailItem)</ID>
+    <ID>ComplexMethod:ViewHolderLciLca.kt$ViewHolderLciLca$override fun bind(item: InvestmentsStatementFixedIncomeDetailItem)</ID>
+    <ID>ComplexMethod:ViewHolderLig.kt$ViewHolderLig$override fun bind(item: InvestmentsStatementFixedIncomeDetailItem)</ID>
+    <ID>ComplexMethod:ViewHolderSaving.kt$ViewHolderSaving$override fun bind(item: InvestmentsStatementFixedIncomeDetailItem)</ID>
+    <ID>ComplexMethod:WalletAdapter.kt$WalletAdapter$override fun onBindViewHolder(holder: WalletItemViewHolder, position: Int)</ID>
+    <ID>ComplexMethod:InvestmentsSuggestionsProductsAdapter.kt$InvestmentsSuggestionsProductsAdapter.FixedIncomeViewHolder$override fun bindView(item: ProductInvestmentItem, clickAction: ClickActionList&lt;ProductInvestmentItem&gt;)</ID>
+    <ID>ComplexMethod:InvestmentsSuggestionsProductsAdapter.kt$InvestmentsSuggestionsProductsAdapter.FundViewHolder$override fun bindView(item: ProductInvestmentItem, clickAction: ClickActionList&lt;ProductInvestmentItem&gt;)</ID>
+    <ID>ComplexMethod:CommunityHomeFragment.kt$CommunityHomeFragment$private fun setTabAdapter(tab: Tab)</ID>
+    <ID>ComplexMethod:CommunityHomeViewModel.kt$CommunityHomeViewModel$private fun onPermissionResultData(event: Event.Data&lt;Boolean&gt;, eventFeature: Event&lt;List&lt;FirstFeatureAccessModel&gt;&gt;)</ID>
+    <ID>ComplexMethod:InvitationsBottomSheetViewModel.kt$InvitationsBottomSheetViewModel$fun sendInvite()</ID>
+    <ID>ComplexMethod:InvestmentsStatementViewModel.kt$InvestmentsStatementViewModel$private fun getMappedProductList( investmentCategoryModel: InvestmentCategoryModel ): Pair&lt;List&lt;InvestmentStatementItem&gt;, List&lt;Entry&gt;&gt;</ID>
+    <ID>ComplexMethod:InvestmentsStatementFragment.kt$InvestmentsStatementFragment$private fun setFinancialEquityEvolution(evolution: InvestmentExtractEvolution)</ID>
+    <ID>ComplexMethod:InvestmentsStatementVariableIncomeDetailFragment.kt$InvestmentsStatementVariableIncomeDetailFragment$override fun onActivityCreated(savedInstanceState: Bundle?)</ID>
+    <ID>ComplexMethod:ContextualTermsListViewModel.kt$ContextualTermsListViewModel$private suspend fun handleConfigTerms( event: Event&lt;ClientSettingsModel&gt;, termIds: ArrayList&lt;String&gt;, termsType: List&lt;ClientSettingTermType&gt; )</ID>
+    <ID>ComplexMethod:FixedIncomeTypeAdapter.kt$FixedIncomeTypeAdapter$private fun applyCheckedStyle(holder: ViewHolder, isChecked: Boolean)</ID>
+    <ID>ComplexMethod:InvestmentsChartFragment.kt$InvestmentsChartFragment$private fun loadCharts(investmentChartModel: InvestmentChartModel)</ID>
+    <ID>ComplexMethod:LearnToInvestFactoryImpl.kt$LearnToInvestFactoryImpl$override fun getSectionModels(cell: Cell): List&lt;SectionModel&gt;?</ID>
+    <ID>ComplexMethod:WalletViewModel.kt$WalletViewModel$private fun generateWalletItems( listData: List&lt;Data&gt;, localWalletList: List&lt;WalletItem&gt;? = null )</ID>
+    <ID>ComplexMethod:WalletViewModel.kt$WalletViewModel$private suspend fun onWalletData(wallet: Wallet)</ID>
+    <ID>ComplexMethod:InvestmentTermsRemoteImpl.kt$InvestmentTermsRemoteImpl$override suspend fun fetchTermsList(): Either&lt;Failure.ServiceError, List&lt;Term&gt;&gt;</ID>
+    <ID>ComplexMethod:InvestmentTermsRemoteImpl.kt$InvestmentTermsRemoteImpl$override suspend fun savePublicOfferTerm(termEnvelope: TermEnvelope): Either&lt;Failure.ServiceError, SaveTermReturn&gt;</ID>
+    <ID>ComplexMethod:WalletAdapter.kt$WalletAdapter$override fun onBindViewHolder(holder: WalletItemViewHolder, position: Int)</ID>
+    <ID>ComplexMethod:FundsFilterViewModel.kt$FundsFilterViewModel$private fun getFundsClass(): List&lt;FilterItemNameModel&gt;</ID>
+    <ID>ComplexMethod:InterFilterCustomView.kt$InterFilterCustomView$private fun configFilter(filterFunds: FilterFunds?)</ID>
+    <ID>ComplexMethod:WalletAdapter.kt$WalletAdapter$private fun setupWalletItem( title: String? = null, amount: String? = null, percentage: String? = null, color: String? = null, subTitle: String? = null, subTitleColor: String? = null, available: Boolean? = false, collapsedItemView: WalletCollapsedItemView )</ID>
+    <ID>ComplexMethod:InvestmentsStatementViewModel.kt$InvestmentsStatementViewModel$private fun getMappedProductList( investmentCategoryModel: InvestmentCategoryModel ): Pair&lt;List&lt;InvestmentStatementItem&gt;, List&lt;Entry&gt;&gt;</ID>
+    <ID>ComplexMethod:WalletViewModel.kt$WalletViewModel$@Suppress("MagicNumber") private fun generateWalletItems( listData: List&lt;Data&gt;, localWalletList: List&lt;WalletItem&gt;? = null )</ID>
+    <ID>ComplexMethod:RiskSeekBarFilter.kt$RiskSeekBarFilter$@Synchronized @Suppress("MagicNumber") override fun onDraw(canvas: Canvas)</ID>
+    <ID>LongMethod:WalletViewModel.kt$WalletViewModel$@Suppress("MagicNumber") private fun generateWalletItems( listData: List&lt;Data&gt;, localWalletList: List&lt;WalletItem&gt;? = null )</ID>
+    <ID>LongMethod:InvestmentsHomeViewModel.kt$InvestmentsHomeViewModel$@OnLifecycleEvent(Lifecycle.Event.ON_CREATE) fun loadScreen()</ID>
+    <ID>LongMethod:HomeState.kt$HomeState$private fun observer(fragment: Fragment)</ID>
+    <ID>LongMethod:InvestmentsHomeFragment.kt$InvestmentsHomeFragment$private fun inscribeObservers()</ID>
+    <ID>LongMethod:InvestmentsSuggestionsProductsFragment.kt$InvestmentsSuggestionsProductsFragment$override fun onActivityCreated(savedInstanceState: Bundle?)</ID>
+    <ID>LongMethod:InvestmentsStatementFixedIncomeDetailAdapter.kt$InvestmentsStatementFixedIncomeDetailAdapter$override fun onCreateViewHolder(parent: ViewGroup, viewType: Int)</ID>
+    <ID>LongMethod:WalletViewModel.kt$WalletViewModel$private fun generateWalletItems( listData: List&lt;Data&gt;, localWalletList: List&lt;WalletItem&gt;? = null )</ID>
+    <ID>LongMethod:WalletAdapter.kt$WalletAdapter$override fun onBindViewHolder(holder: WalletItemViewHolder, position: Int)</ID>
+    <ID>LongMethod:GlobalTermDetailsFragment.kt$GlobalTermDetailsFragment$override fun onViewCreated(view: View, savedInstanceState: Bundle?)</ID>
+    <ID>LongMethod:InvestmentsStatementViewModel.kt$InvestmentsStatementViewModel$private fun getMappedProductList( investmentCategoryModel: InvestmentCategoryModel ): Pair&lt;List&lt;InvestmentStatementItem&gt;, List&lt;Entry&gt;&gt;</ID>
+    <ID>TooManyFunctions:BindingAdapterExtensions.kt$br.com.intermedium.investments.libraries.extensions.BindingAdapterExtensions.kt</ID>
+    <ID>TooManyFunctions:CardMapper.kt$br.com.intermedium.investments.features.communities.networking.mapper.response.CardMapper.kt</ID>
+    <ID>NestedBlockDepth:InvestmentsStatementVariableIncomeDetailAdapter.kt$InvestmentsStatementVariableIncomeDetailAdapter.ViewHolder$private fun setTvItemInvestmentVariableIncomeProfitabilityData(view: View, item: VariableIncomePapersModel)</ID>
+    <ID>NestedBlockDepth:ApplyFixedIncomeViewModel.kt$ApplyFixedIncomeViewModel$private fun handleConfigTerms(event: Event&lt;ClientSettingsModel&gt;)</ID>
+    <ID>NestedBlockDepth:FixedIncomeProductAdapter.kt$FixedIncomeProductAdapter$override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int)</ID>
+    <ID>NestedBlockDepth:WalletViewModel.kt$WalletViewModel$private fun generateWalletItems( listData: List&lt;Data&gt;, localWalletList: List&lt;WalletItem&gt;? = null )</ID>
+    <ID>NestedBlockDepth:WalletAdapter.kt$WalletAdapter$override fun onBindViewHolder(holder: WalletItemViewHolder, position: Int)</ID>
+    <ID>NestedBlockDepth:FixedIncomeNotesDetailAdapter.kt$FixedIncomeNotesDetailAdapter$override fun onBindViewHolder(holder: ViewHolder, position: Int)</ID>
+    <ID>NestedBlockDepth:ContextualTermsListViewModel.kt$ContextualTermsListViewModel$private suspend fun handleConfigTerms( event: Event&lt;ClientSettingsModel&gt;, termIds: ArrayList&lt;String&gt;, termsType: List&lt;ClientSettingTermType&gt; )</ID>
+    <ID>NestedBlockDepth:WalletViewModel.kt$WalletViewModel$@Suppress("MagicNumber") private fun generateWalletItems( listData: List&lt;Data&gt;, localWalletList: List&lt;WalletItem&gt;? = null )</ID>
+    <ID>MagicNumber:InvestmentsPieChart.kt$InvestmentsPieChart$.05</ID>
+    <ID>MagicNumber:InvestmentsPieChart.kt$InvestmentsPieChart$.15</ID>
+    <ID>MagicNumber:CommunitiesHighlightViewModel.kt$CommunitiesHighlightViewModel$3</ID>
+    <ID>MagicNumber:CommunitiesHighlightViewModel.kt$CommunitiesHighlightViewModel$4</ID>
+    <ID>MagicNumber:CommunitiesHighlightViewModel.kt$CommunitiesHighlightViewModel$5</ID>
+  </Whitelist>
+</SmellBaseline>

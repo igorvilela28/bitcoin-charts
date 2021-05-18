@@ -1,8 +1,7 @@
-object Versions { const val jUnit = "junit:junit:${TestVersions.jUnit}"
-    const val extjUnit = "androidx.test.ext:junit:${TestVersions.extjUnit}"
-    const val espressoCore = "androidx.test.espresso:espresso-core:${TestVersions.espressoCore}"
-
+object Versions {
     const val agpPlugin = "4.2.0"
+    const val detekt = "1.1.1"
+
     const val kotlin = "1.5.0"
     const val coroutines = "1.5.0-RC"
 

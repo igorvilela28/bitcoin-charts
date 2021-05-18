@@ -1,0 +1,9 @@
+apply plugin: "io.gitlab.arturbosch.detekt"
+
+detekt {
+    toolVersion = Versions.detekt
+    config = files("$rootDir/tools/detekt/detekt-config.yml")
+    input = files("src/main/java")
+    baseline = file("$rootDir/tools/detekt/detekt-baseline.xml")
+    filters = ".*/resources/.*,.*/build/.*,.*/buildSrc/.*"
+}

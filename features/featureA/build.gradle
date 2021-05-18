@@ -20,6 +20,7 @@ dependencies {
     implementation Libs.retrofit
 
     testImplementation TestLibs.jUnit
+    testImplementation TestLibs.mockk
 
     androidTestImplementation TestLibs.extjUnit
     androidTestImplementation TestLibs.espressoCore

@@ -6,21 +6,11 @@ dependencies {
     implementation Libs.coroutines
     implementation Libs.coroutinesAndroid
 
-    implementation Libs.coreKtx
-    implementation Libs.appCompat
-    implementation Libs.material
-    implementation Libs.constraintLayout
-
-    implementation Libs.viewModel
-    implementation Libs.lifeCycle
-
     implementation Libs.hilt
     kapt Libs.hiltCompiler
 
     implementation Libs.retrofit
 
     testImplementation TestLibs.jUnit
-
-    androidTestImplementation TestLibs.extjUnit
-    androidTestImplementation TestLibs.espressoCore
+    testImplementation TestLibs.mockk
 }

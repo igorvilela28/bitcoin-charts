@@ -17,6 +17,7 @@ object Versions {
 }
 
 object TestVersions {
+    const val mockk = "1.11.0"
     const val jacoco = "0.8.7"
     const val jUnit = "4.12"
     const val extjUnit =  "1.1.2"

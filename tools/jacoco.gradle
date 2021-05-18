@@ -8,7 +8,6 @@ task jacocoTestReport(type: JacocoReport, dependsOn: ['testDebugUnitTest', 'crea
     classDirectories.setFrom(files([kotlinDebugTree]))
 
     def coverageSourceDirs = ['src/main/java']
-    println(coverageSourceDirs)
     additionalSourceDirs.setFrom(files(coverageSourceDirs))
     sourceDirectories.setFrom(files(coverageSourceDirs))
 

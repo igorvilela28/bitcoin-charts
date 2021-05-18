@@ -13,6 +13,8 @@ object Versions { const val jUnit = "junit:junit:${TestVersions.jUnit}"
 
     const val lifecycle = "2.3.1"
     const val hilt = "2.35.1"
+
+    const val retrofit = "2.9.0"
 }
 
 object TestVersions {

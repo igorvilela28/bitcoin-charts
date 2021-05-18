@@ -17,6 +17,8 @@ dependencies {
     implementation Libs.hilt
     kapt Libs.hiltCompiler
 
+    implementation Libs.retrofit
+
     testImplementation TestLibs.jUnit
 
     androidTestImplementation TestLibs.extjUnit

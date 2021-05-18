@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.igorvd.baseapp" >
+    package="com.igorvd.bitcoincharts" >
 
     <application
         android:name=".App"

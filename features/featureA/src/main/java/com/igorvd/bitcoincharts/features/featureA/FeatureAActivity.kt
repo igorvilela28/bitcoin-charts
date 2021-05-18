@@ -1,4 +1,4 @@
-package com.igorvd.baseapp.features.featureA
+package com.igorvd.bitcoincharts.features.featureA
 
 import android.content.Context
 import android.content.Intent

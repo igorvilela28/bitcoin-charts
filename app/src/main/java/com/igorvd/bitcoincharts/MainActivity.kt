@@ -1,8 +1,8 @@
-package com.igorvd.baseapp
+package com.igorvd.bitcoincharts
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.igorvd.baseapp.features.featureA.FeatureAActivity
+import com.igorvd.bitcoincharts.features.featureA.FeatureAActivity
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

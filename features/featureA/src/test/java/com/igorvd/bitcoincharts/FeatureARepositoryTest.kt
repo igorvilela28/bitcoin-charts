@@ -1,4 +1,4 @@
-package com.igorvd.baseapp
+package com.igorvd.bitcoincharts
 
 import org.junit.Assert
 import org.junit.Before

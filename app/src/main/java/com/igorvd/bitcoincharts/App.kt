@@ -1,4 +1,4 @@
-package com.igorvd.baseapp
+package com.igorvd.bitcoincharts
 
 import android.app.Application
 

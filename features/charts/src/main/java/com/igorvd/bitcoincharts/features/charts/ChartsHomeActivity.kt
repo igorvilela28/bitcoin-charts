@@ -1,19 +1,19 @@
-package com.igorvd.bitcoincharts.features.featureA
+package com.igorvd.bitcoincharts.features.charts
 
 import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 
-class FeatureAActivity : AppCompatActivity() {
+class ChartsHomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_feature)
+        setContentView(R.layout.activity_charts_home)
     }
 
     companion object {
         fun newIntent (context: Context): Intent {
-            return Intent(context, FeatureAActivity::class.java)
+            return Intent(context, ChartsHomeActivity::class.java)
         }
     }
 }

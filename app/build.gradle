@@ -41,7 +41,7 @@ dependencies {
     implementation project(Modules.coreData)
     implementation project(Modules.coreDomain)
     implementation project(Modules.corePresentation)
-    implementation project(Modules.featureA)
+    implementation project(Modules.charts)
 
     implementation Libs.kotlin
     implementation Libs.coroutines

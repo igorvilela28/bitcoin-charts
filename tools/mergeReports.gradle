@@ -4,7 +4,7 @@ def coverageSourceDirs = []
 def taskList = []
 def coverageClassDirectories = []
 def modulesList = [Modules.app, Modules.coreData, Modules.coreDomain, Modules.corePresentation,
-                   Modules.featureA]
+                   Modules.charts]
 def executionDataList = []
 
 modulesList.each { module ->

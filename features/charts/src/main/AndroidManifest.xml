@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.igorvd.bitcoincharts.features.featureA" >
+    package="com.igorvd.bitcoincharts.features.charts" >
 
     <application >
-        <activity android:name="com.igorvd.bitcoincharts.features.featureA.FeatureAActivity" >
+        <activity android:name=".ChartsHomeActivity" >
         </activity>
     </application>
 

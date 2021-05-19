@@ -15,8 +15,7 @@ object Libs {
     const val activityKtx = "androidx.activity:activity-ktx:${Versions.activityKtx}"
     const val fragmentKtx = "androidx.fragment:fragment-ktx:${Versions.fragmentktx}"
     const val viewModel = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.lifecycle}"
-    const val viewModelKtx = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.lifecycle}"
-    const val lifeCycle = "androidx.lifecycle:lifecycle-runtime-ktx:${Versions.lifecycle}"
+    const val lifeCycle = "androidx.lifecycle:lifecycle-runtime-ktx:${Versions.lifecycleRuntime}"
 
     //dependency injection
     const val hilt = "com.google.dagger:hilt-android:${Versions.hilt}"

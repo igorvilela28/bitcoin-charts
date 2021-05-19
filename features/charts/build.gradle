@@ -19,7 +19,6 @@ dependencies {
     implementation Libs.constraintLayout
 
     implementation Libs.viewModel
-    implementation Libs.viewModelKtx
     implementation Libs.lifeCycle
 
     implementation Libs.hilt

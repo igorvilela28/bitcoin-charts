@@ -2,7 +2,7 @@ package com.igorvd.bitcoincharts
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.igorvd.bitcoincharts.features.charts.presentation.ChartsHomeActivity
+import com.igorvd.bitcoincharts.features.charts.presentation.home.ChartsHomeActivity
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

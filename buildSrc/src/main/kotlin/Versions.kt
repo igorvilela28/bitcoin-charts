@@ -15,6 +15,7 @@ object Versions {
     const val activityKtx = "1.2.3"
     const val fragmentktx = "1.3.4"
     const val lifecycle = "2.3.1"
+    const val lifecycleRuntime = "2.4.0-alpha01"
     const val hilt = "2.35.1"
     const val hiltLifecycle = "1.0.0-alpha03"
 

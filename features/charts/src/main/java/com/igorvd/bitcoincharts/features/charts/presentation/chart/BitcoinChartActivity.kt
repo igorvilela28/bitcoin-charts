@@ -31,6 +31,7 @@ class BitcoinChartActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(viewBinding.root)
+        layoutContainer.setup()
         setupObservers()
         viewModel.launch { getChart() }
     }

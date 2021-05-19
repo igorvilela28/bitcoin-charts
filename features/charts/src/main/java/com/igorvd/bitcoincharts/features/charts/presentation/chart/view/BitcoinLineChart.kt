@@ -51,19 +51,10 @@ class BitcoinLineChart @JvmOverloads constructor(
         isHighlightPerDragEnabled = true
         minOffset = 0f
         extraBottomOffset = CHART_EXTRA_BOTTOM_OFFSET
-        setOnChartValueSelectedListener(object : OnChartValueSelectedListener {
-
-            override fun onValueSelected(e: Entry, h: Highlight) {
-                Log.d("Igor", "${e.x.toLong()} - ${e.y} - ${timeStampToDatePattern(e.x.toLong())}")
-            }
-
-            override fun onNothingSelected() {
-            }
-        })
+        marker = CustomMarkerView(context)
     }
 
     private fun LineChart.setupXAxis(chart: Chart) = with(xAxis) {
-        xAxis.setCenterAxisLabels(true)
         setDrawGridLines(false)
         position = XAxis.XAxisPosition.BOTTOM
         yOffset = X_AXIS_Y_OFFSET
@@ -71,6 +62,7 @@ class BitcoinLineChart @JvmOverloads constructor(
         setLabelCount(X_AXIS_LABEL_COUNT, true)
         axisMinimum = chart.entries.firstOrNull()?.x?.toFloat() ?: 0F
         axisMaximum = chart.entries.lastOrNull()?.x?.toFloat() ?: 0F
+        valueFormatter = XAxisFormatter()
     }
 
     private fun LineChart.setupYAxis(chart: Chart) = with(axisLeft) {

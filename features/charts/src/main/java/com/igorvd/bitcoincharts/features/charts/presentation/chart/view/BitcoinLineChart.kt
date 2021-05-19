@@ -86,7 +86,7 @@ class BitcoinLineChart @JvmOverloads constructor(
         val dataset = LineDataSet(mapEntries(chart.entries), "dataset").apply {
             setDrawValues(false)
             setDrawIcons(false)
-            lineWidth = 1f
+            lineWidth = DATA_SET_LINE_WIDTH
             setColor(context.getColorCompat(R.color.purple_500))
             this.mode = LineDataSet.Mode.CUBIC_BEZIER
             axisDependency = YAxis.AxisDependency.LEFT
@@ -112,6 +112,6 @@ class BitcoinLineChart @JvmOverloads constructor(
         private const val X_AXIS_Y_OFFSET = 16f
         private const val X_AXIS_LABEL_COUNT = 4
         private const val Y_AXIS_X_OFFSET = 16f
-        private const val AXIS_TEXT_SIZE = 14f
+        private const val DATA_SET_LINE_WIDTH = 1.5f
     }
 }

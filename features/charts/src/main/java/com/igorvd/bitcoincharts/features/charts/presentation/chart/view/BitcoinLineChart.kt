@@ -12,6 +12,9 @@ import com.github.mikephil.charting.components.YAxis
 import com.github.mikephil.charting.data.Entry
 import com.github.mikephil.charting.data.LineData
 import com.github.mikephil.charting.data.LineDataSet
+import com.github.mikephil.charting.highlight.Highlight
+import com.github.mikephil.charting.listener.OnChartValueSelectedListener
+import com.igorvd.bitcoincharts.core.domain.timeStampToDatePattern
 import com.igorvd.bitcoincharts.core.presentation.extensions.getColorCompat
 import com.igorvd.bitcoincharts.features.charts.R
 import com.igorvd.bitcoincharts.features.charts.domain.model.Chart
@@ -33,10 +36,7 @@ class BitcoinLineChart @JvmOverloads constructor(
 
     private fun setupChart(chart: Chart) {
         this.clear()
-        // labels and icons of the dataset are draw only if the number of entries of the dataSet is
-        // less than the max visible value count
         setMaxVisibleValueCount(chart.entries.size + 1)
-        // on the chart, there is two Y axis. For this one, we don't need the right one.
         axisRight.isEnabled = false
         description.isEnabled = false
         legend.isEnabled = false
@@ -46,35 +46,40 @@ class BitcoinLineChart @JvmOverloads constructor(
         isDragEnabled = true
         setScaleEnabled(false)
         setNoDataText("")
-        // this is used to set the distance from a tap that should activate the highlight for the entry
         maxHighlightDistance = CHART_MAX_HIGHLIGHT_DISTANCE
         isHighlightPerTapEnabled = true
         isHighlightPerDragEnabled = true
-        // this disable an offset that was adding a padding for the chart at start
         minOffset = 0f
         extraBottomOffset = CHART_EXTRA_BOTTOM_OFFSET
+        setOnChartValueSelectedListener(object : OnChartValueSelectedListener {
+
+            override fun onValueSelected(e: Entry, h: Highlight) {
+                Log.d("Igor", "${e.x.toLong()} - ${e.y} - ${timeStampToDatePattern(e.x.toLong())}")
+            }
+
+            override fun onNothingSelected() {
+            }
+        })
     }
 
     private fun LineChart.setupXAxis(chart: Chart) = with(xAxis) {
         xAxis.setCenterAxisLabels(true)
         setDrawGridLines(false)
         position = XAxis.XAxisPosition.BOTTOM
-        // creates an offset between the chart and the X labels
         yOffset = X_AXIS_Y_OFFSET
-        // avoid the X labels clip outside of the screen
         setAvoidFirstLastClipping(true)
+        setLabelCount(X_AXIS_LABEL_COUNT, true)
         axisMinimum = chart.entries.firstOrNull()?.x?.toFloat() ?: 0F
         axisMaximum = chart.entries.lastOrNull()?.x?.toFloat() ?: 0F
     }
 
     private fun LineChart.setupYAxis(chart: Chart) = with(axisLeft) {
         axisMinimum = 0F
-        axisMaximum = chart.entries.lastOrNull()?.y?.toFloat() ?: 0F
+        axisMaximum = chart.entries.maxByOrNull { it.y }?.y?.toFloat() ?: 0F
         setDrawGridLines(false)
         setDrawAxisLine(true)
         setPosition(YAxis.YAxisLabelPosition.OUTSIDE_CHART)
         xOffset = Y_AXIS_X_OFFSET
-        //textSize = AXIS_TEXT_SIZE
     }
 
     private fun setDataSet(chart: Chart) {
@@ -90,12 +95,11 @@ class BitcoinLineChart @JvmOverloads constructor(
             this.isHighlightEnabled = true
             setDrawHorizontalHighlightIndicator(false)
             setDrawVerticalHighlightIndicator(true)
-            highLightColor = context.getColorCompat(R.color.purple_500)
+            highLightColor = context.getColorCompat(R.color.black)
         }
 
         val lineData = LineData(dataset)
         setData(lineData)
-        notifyDataSetChanged()
     }
 
     private fun mapEntries(entries: List<ChartEntry>): List<Entry> {
@@ -106,6 +110,7 @@ class BitcoinLineChart @JvmOverloads constructor(
         private const val CHART_EXTRA_BOTTOM_OFFSET = 16f
         private const val CHART_MAX_HIGHLIGHT_DISTANCE = 24f
         private const val X_AXIS_Y_OFFSET = 16f
+        private const val X_AXIS_LABEL_COUNT = 4
         private const val Y_AXIS_X_OFFSET = 16f
         private const val AXIS_TEXT_SIZE = 14f
     }

@@ -1,11 +1,8 @@
 package com.igorvd.bitcoincharts.features.charts.presentation.chart.view
 
 import android.content.Context
-import android.graphics.Canvas
 import android.graphics.Color
 import android.util.AttributeSet
-import android.util.Log
-import androidx.core.content.res.ResourcesCompat
 import com.github.mikephil.charting.charts.LineChart
 import com.github.mikephil.charting.components.XAxis
 import com.github.mikephil.charting.components.YAxis
@@ -13,9 +10,9 @@ import com.github.mikephil.charting.data.Entry
 import com.github.mikephil.charting.data.LineData
 import com.github.mikephil.charting.data.LineDataSet
 import com.github.mikephil.charting.highlight.Highlight
-import com.github.mikephil.charting.listener.OnChartValueSelectedListener
-import com.igorvd.bitcoincharts.core.domain.timeStampToDatePattern
+import com.github.mikephil.charting.interfaces.datasets.ILineDataSet
 import com.igorvd.bitcoincharts.core.presentation.extensions.getColorCompat
+import com.igorvd.bitcoincharts.core.presentation.extensions.getDrawableCompat
 import com.igorvd.bitcoincharts.features.charts.R
 import com.igorvd.bitcoincharts.features.charts.domain.model.Chart
 import com.igorvd.bitcoincharts.features.charts.domain.model.ChartEntry
@@ -26,6 +23,8 @@ class BitcoinLineChart @JvmOverloads constructor(
     defStyleAttr: Int = 0
 ) : LineChart(context, attrs, defStyleAttr) {
 
+    private val highlightEntries = mutableListOf<Entry>()
+
     fun setChart(chart: Chart) {
         setupChart(chart)
         setupXAxis(chart)
@@ -35,7 +34,7 @@ class BitcoinLineChart @JvmOverloads constructor(
     }
 
     private fun setupChart(chart: Chart) {
-        this.clear()
+        clear()
         setMaxVisibleValueCount(chart.entries.size + 1)
         axisRight.isEnabled = false
         description.isEnabled = false
@@ -85,6 +84,7 @@ class BitcoinLineChart @JvmOverloads constructor(
             setDrawCircles(false)
             setDrawCircleHole(false)
             this.isHighlightEnabled = true
+            this.setDrawIcons(true)
             setDrawHorizontalHighlightIndicator(false)
             setDrawVerticalHighlightIndicator(true)
             highLightColor = context.getColorCompat(R.color.black)
@@ -96,6 +96,33 @@ class BitcoinLineChart @JvmOverloads constructor(
 
     private fun mapEntries(entries: List<ChartEntry>): List<Entry> {
         return entries.map { Entry(it.x.toFloat(), it.y.toFloat()) }
+    }
+
+    override fun highlightValue(high: Highlight?, callListener: Boolean) {
+
+        clearHighlights()
+
+        data.dataSets.forEach {
+            high ?: return
+            it.highlightEntriesForXValue(high.x)
+        }
+
+        super.highlightValue(high, callListener)
+    }
+
+    private fun clearHighlights() {
+        highlightEntries.forEach {
+            it.icon = null
+        }
+        highlightEntries.clear()
+    }
+
+    private fun ILineDataSet.highlightEntriesForXValue(x: Float) {
+        val entries = getEntriesForXValue(x)
+        entries.forEach {
+            it.icon = context.getDrawableCompat(R.drawable.ic_highlight_circle)
+        }
+        highlightEntries.addAll(entries)
     }
 
     companion object {

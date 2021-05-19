@@ -5,6 +5,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
+import com.igorvd.bitcoincharts.core.presentation.extensions.launch
 import com.igorvd.bitcoincharts.features.charts.R
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -16,7 +17,7 @@ class ChartsHomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_charts_home)
-        chartsHomeViewModel.getChartsHome()
+        chartsHomeViewModel.launch { getChartsHome() }
     }
 
     companion object {

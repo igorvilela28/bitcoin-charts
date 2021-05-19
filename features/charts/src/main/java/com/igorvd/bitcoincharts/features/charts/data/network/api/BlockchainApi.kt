@@ -6,7 +6,7 @@ import retrofit2.http.Path
 
 interface BlockchainApi {
     @GET("charts/{chartType}")
-    suspend fun getChartData(@Path("chartType") chartType: String): List<ChartResponse>
+    suspend fun getChartData(@Path("chartType") chartType: String): ChartResponse
 
     companion object {
         const val BASE_URL = "https://api.blockchain.info/"

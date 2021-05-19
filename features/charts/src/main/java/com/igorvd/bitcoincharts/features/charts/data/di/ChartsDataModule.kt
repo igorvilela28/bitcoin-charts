@@ -1,7 +1,9 @@
 package com.igorvd.bitcoincharts.features.charts.data.di
 
 import com.igorvd.bitcoincharts.core.data.network.ApiClientBuilder
+import com.igorvd.bitcoincharts.features.charts.data.BitcoinChartRepositoryImpl
 import com.igorvd.bitcoincharts.features.charts.data.network.api.BlockchainApi
+import com.igorvd.bitcoincharts.features.charts.domain.repository.BitcoinChartRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -18,4 +20,11 @@ object ChartsDataModule {
         return ApiClientBuilder.createService(BlockchainApi::class.java, BlockchainApi.BASE_URL)
     }
 
+    @Provides
+    @ViewModelScoped
+    fun providesBitcoinChartRepository(
+        bitcoinChartRepositoryImpl: BitcoinChartRepositoryImpl
+    ): BitcoinChartRepository {
+        return bitcoinChartRepositoryImpl
+    }
 }

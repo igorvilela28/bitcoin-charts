@@ -49,7 +49,8 @@ class BitcoinLineChart @JvmOverloads constructor(
         isHighlightPerTapEnabled = true
         isHighlightPerDragEnabled = true
         minOffset = 0f
-        extraBottomOffset = CHART_EXTRA_BOTTOM_OFFSET
+        extraTopOffset = CHART_EXTRA_OFFSET
+        extraBottomOffset = CHART_EXTRA_OFFSET
         marker = CustomMarkerView(context)
     }
 
@@ -126,7 +127,7 @@ class BitcoinLineChart @JvmOverloads constructor(
     }
 
     companion object {
-        private const val CHART_EXTRA_BOTTOM_OFFSET = 16f
+        private const val CHART_EXTRA_OFFSET = 16f
         private const val CHART_MAX_HIGHLIGHT_DISTANCE = 24f
         private const val X_AXIS_Y_OFFSET = 16f
         private const val X_AXIS_LABEL_COUNT = 4

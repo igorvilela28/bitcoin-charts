@@ -1,6 +1,5 @@
 package com.igorvd.bitcoincharts.features.charts.presentation.chart
 
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import com.igorvd.bitcoincharts.features.charts.domain.model.Chart
 import com.igorvd.bitcoincharts.features.charts.domain.model.ChartType

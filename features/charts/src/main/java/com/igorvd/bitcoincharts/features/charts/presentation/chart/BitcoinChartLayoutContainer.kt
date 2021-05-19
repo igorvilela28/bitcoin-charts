@@ -8,6 +8,8 @@ class BitcoinChartLayoutContainer(private val viewBinding: ActivityChartBinding)
 
     fun setChart(chart: Chart) {
         Log.d("Igor", chart.toString())
+        viewBinding.tvTitle.text = chart.name
+        viewBinding.tvDescription.text = chart.description
         viewBinding.lineChart.setChart(chart)
     }
 }

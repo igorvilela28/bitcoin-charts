@@ -30,6 +30,8 @@ dependencies {
     implementation Libs.retrofit
     implementation Libs.retrofitMoshiConverter
 
+    implementation Libs.mpAndroidCharts
+
     testImplementation TestLibs.jUnit
     testImplementation TestLibs.mockk
 

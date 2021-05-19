@@ -1,4 +1,5 @@
 object Versions {
+    const val mpAndroidChart = "v3.1.0"
     const val agpPlugin = "4.2.0"
     const val detekt = "1.1.1"
 

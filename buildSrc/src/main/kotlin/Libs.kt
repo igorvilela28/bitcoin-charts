@@ -28,6 +28,9 @@ object Libs {
     const val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
     const val retrofitMoshiConverter = "com.squareup.retrofit2:converter-moshi:${Versions.retrofit}"
     const val okHttpLoggingInterceptor = "com.squareup.okhttp3:logging-interceptor:${Versions.okHttp}"
+
+    //charts
+    const val mpAndroidCharts = "com.github.PhilJay:MPAndroidChart:${Versions.mpAndroidChart}"
 }
 
 object TestLibs {

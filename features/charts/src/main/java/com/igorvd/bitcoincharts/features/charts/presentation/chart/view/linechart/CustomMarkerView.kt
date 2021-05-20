@@ -1,4 +1,4 @@
-package com.igorvd.bitcoincharts.features.charts.presentation.chart.view
+package com.igorvd.bitcoincharts.features.charts.presentation.chart.view.linechart
 
 import android.content.Context
 import com.github.mikephil.charting.components.MarkerView

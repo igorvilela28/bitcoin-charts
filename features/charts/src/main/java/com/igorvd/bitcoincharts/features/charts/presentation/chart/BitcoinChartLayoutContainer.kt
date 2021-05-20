@@ -8,29 +8,31 @@ import com.igorvd.bitcoincharts.core.domain.service.datetime.DateTimeService
 import com.igorvd.bitcoincharts.features.charts.databinding.ActivityChartBinding
 import com.igorvd.bitcoincharts.features.charts.domain.model.BitcoinMetricScreen
 import com.igorvd.bitcoincharts.features.charts.domain.model.MetricChartFormattedEntry
+import com.igorvd.bitcoincharts.features.charts.presentation.chart.view.linechart.formatter.YAxisFormatterFactory
 
 class BitcoinChartLayoutContainer(
     private val viewBinding: ActivityChartBinding,
-    private val dateTimeService: DateTimeService
+    private val dateTimeService: DateTimeService,
+    private val yAxisFormatterFactory: YAxisFormatterFactory
 ) {
 
     fun setup() = viewBinding.apply {
+        lineChart.apply {
+            setup(dateTimeService, yAxisFormatterFactory)
+            setOnChartValueSelectedListener(object : OnChartValueSelectedListener {
 
-        lineChart.setup(dateTimeService)
+                override fun onValueSelected(e: Entry, h: Highlight) {
+                    val formattedEntry = e.data as? MetricChartFormattedEntry
+                    clLineChartHighlightInfo.isInvisible = formattedEntry == null
+                    tvXValue.text = formattedEntry?.formattedX
+                    tvYValue.text = formattedEntry?.formattedY
+                }
 
-        lineChart.setOnChartValueSelectedListener(object : OnChartValueSelectedListener {
-
-            override fun onValueSelected(e: Entry, h: Highlight) {
-                val formattedEntry = e.data as? MetricChartFormattedEntry
-                clLineChartHighlightInfo.isInvisible = formattedEntry == null
-                tvXValue.text = formattedEntry?.formattedX
-                tvYValue.text = formattedEntry?.formattedY
-            }
-
-            override fun onNothingSelected() {
-                clLineChartHighlightInfo.isInvisible = true
-            }
-        })
+                override fun onNothingSelected() {
+                    clLineChartHighlightInfo.isInvisible = true
+                }
+            })
+        }
     }
 
     fun setScreenContent(bitcoinMetricScreen: BitcoinMetricScreen) = viewBinding.apply {

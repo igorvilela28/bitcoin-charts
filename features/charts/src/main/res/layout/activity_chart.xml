@@ -84,7 +84,7 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <com.igorvd.bitcoincharts.features.charts.presentation.chart.view.BitcoinLineChart
+    <com.igorvd.bitcoincharts.features.charts.presentation.chart.view.linechart.BitcoinLineChart
         android:id="@+id/lineChart"
         android:layout_width="0dp"
         android:layout_height="300dp"

@@ -1,4 +1,4 @@
-package com.igorvd.bitcoincharts.features.charts.presentation.chart.view
+package com.igorvd.bitcoincharts.features.charts.presentation.chart.view.linechart
 
 import android.content.Context
 import android.graphics.Color
@@ -16,11 +16,10 @@ import com.igorvd.bitcoincharts.core.presentation.extensions.getColorCompat
 import com.igorvd.bitcoincharts.core.presentation.extensions.getDrawableCompat
 import com.igorvd.bitcoincharts.features.charts.R
 import com.igorvd.bitcoincharts.features.charts.domain.model.BitcoinMetricChart
-import com.igorvd.bitcoincharts.features.charts.domain.model.Chart
-import com.igorvd.bitcoincharts.features.charts.domain.model.ChartEntry
 import com.igorvd.bitcoincharts.features.charts.domain.model.MetricChartEntry
-import dagger.hilt.android.AndroidEntryPoint
-import javax.inject.Inject
+import com.igorvd.bitcoincharts.features.charts.presentation.chart.view.linechart.formatter.XAxisFormatter
+import com.igorvd.bitcoincharts.features.charts.presentation.chart.view.linechart.formatter.YAxisFormatter
+import com.igorvd.bitcoincharts.features.charts.presentation.chart.view.linechart.formatter.YAxisFormatterFactory
 
 class BitcoinLineChart @JvmOverloads constructor(
     context: Context,
@@ -29,9 +28,11 @@ class BitcoinLineChart @JvmOverloads constructor(
 ) : LineChart(context, attrs, defStyleAttr) {
 
     private val highlightEntries = mutableListOf<Entry>()
+    private lateinit var yAxisFormatterFactory: YAxisFormatterFactory
 
-    fun setup(dateTimeService: DateTimeService) {
+    fun setup(dateTimeService: DateTimeService, yAxisFormatterFactory: YAxisFormatterFactory) {
         xAxis.valueFormatter = XAxisFormatter(dateTimeService)
+        this.yAxisFormatterFactory = yAxisFormatterFactory
     }
 
     fun setChart(chart: BitcoinMetricChart) {
@@ -80,6 +81,7 @@ class BitcoinLineChart @JvmOverloads constructor(
         setDrawAxisLine(true)
         setPosition(YAxis.YAxisLabelPosition.OUTSIDE_CHART)
         xOffset = Y_AXIS_X_OFFSET
+        valueFormatter = YAxisFormatter(chart.type, yAxisFormatterFactory)
     }
 
     private fun setDataSet(chart: BitcoinMetricChart) {

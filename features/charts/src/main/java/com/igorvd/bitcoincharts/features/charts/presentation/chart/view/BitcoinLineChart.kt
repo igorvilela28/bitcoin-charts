@@ -11,6 +11,7 @@ import com.github.mikephil.charting.data.LineData
 import com.github.mikephil.charting.data.LineDataSet
 import com.github.mikephil.charting.highlight.Highlight
 import com.github.mikephil.charting.interfaces.datasets.ILineDataSet
+import com.igorvd.bitcoincharts.core.domain.service.datetime.DateTimeService
 import com.igorvd.bitcoincharts.core.presentation.extensions.getColorCompat
 import com.igorvd.bitcoincharts.core.presentation.extensions.getDrawableCompat
 import com.igorvd.bitcoincharts.features.charts.R
@@ -18,6 +19,8 @@ import com.igorvd.bitcoincharts.features.charts.domain.model.BitcoinMetricChart
 import com.igorvd.bitcoincharts.features.charts.domain.model.Chart
 import com.igorvd.bitcoincharts.features.charts.domain.model.ChartEntry
 import com.igorvd.bitcoincharts.features.charts.domain.model.MetricChartEntry
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 class BitcoinLineChart @JvmOverloads constructor(
     context: Context,
@@ -26,6 +29,10 @@ class BitcoinLineChart @JvmOverloads constructor(
 ) : LineChart(context, attrs, defStyleAttr) {
 
     private val highlightEntries = mutableListOf<Entry>()
+
+    fun setup(dateTimeService: DateTimeService) {
+        xAxis.valueFormatter = XAxisFormatter(dateTimeService)
+    }
 
     fun setChart(chart: BitcoinMetricChart) {
         setupChart(chart)
@@ -64,7 +71,6 @@ class BitcoinLineChart @JvmOverloads constructor(
         setLabelCount(X_AXIS_LABEL_COUNT, true)
         axisMinimum = chart.xAxisConfig.minValue
         axisMaximum = chart.xAxisConfig.maxValue
-        valueFormatter = XAxisFormatter()
     }
 
     private fun LineChart.setupYAxis(chart: BitcoinMetricChart) = with(axisLeft) {

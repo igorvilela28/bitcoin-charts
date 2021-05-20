@@ -4,13 +4,19 @@ import androidx.core.view.isInvisible
 import com.github.mikephil.charting.data.Entry
 import com.github.mikephil.charting.highlight.Highlight
 import com.github.mikephil.charting.listener.OnChartValueSelectedListener
+import com.igorvd.bitcoincharts.core.domain.service.datetime.DateTimeService
 import com.igorvd.bitcoincharts.features.charts.databinding.ActivityChartBinding
 import com.igorvd.bitcoincharts.features.charts.domain.model.BitcoinMetricScreen
 import com.igorvd.bitcoincharts.features.charts.domain.model.MetricChartFormattedEntry
 
-class BitcoinChartLayoutContainer(private val viewBinding: ActivityChartBinding) {
+class BitcoinChartLayoutContainer(
+    private val viewBinding: ActivityChartBinding,
+    private val dateTimeService: DateTimeService
+) {
 
     fun setup() = viewBinding.apply {
+
+        lineChart.setup(dateTimeService)
 
         lineChart.setOnChartValueSelectedListener(object : OnChartValueSelectedListener {
 

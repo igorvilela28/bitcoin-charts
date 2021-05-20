@@ -2,11 +2,14 @@ package com.igorvd.bitcoincharts.features.charts.presentation.chart.view
 
 import com.github.mikephil.charting.formatter.ValueFormatter
 import com.igorvd.bitcoincharts.core.domain.service.datetime.DatePattern
-import com.igorvd.bitcoincharts.core.domain.timeStampToDatePattern
+import com.igorvd.bitcoincharts.core.domain.service.datetime.DateTimeService
+import dagger.hilt.android.scopes.ViewScoped
+import javax.inject.Inject
 
-class XAxisFormatter : ValueFormatter() {
+class XAxisFormatter constructor(private val dateTimeService: DateTimeService) :
+    ValueFormatter() {
 
     override fun getFormattedValue(value: Float): String {
-        return timeStampToDatePattern(value.toLong(), DatePattern.MMM_yy.pattern)
+        return dateTimeService.convertTimestampToDatePattern(value.toLong(), DatePattern.MMM_yy)
     }
 }

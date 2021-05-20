@@ -1,7 +1,5 @@
 package com.igorvd.bitcoincharts.core.domain
 
-import java.lang.String.format
-import java.text.DateFormat
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Locale

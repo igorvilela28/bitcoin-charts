@@ -3,8 +3,6 @@ package com.igorvd.bitcoincharts.features.charts.presentation.chart
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
-import android.widget.TextView
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Lifecycle
@@ -12,7 +10,6 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import com.igorvd.bitcoincharts.core.presentation.extensions.launch
 import com.igorvd.bitcoincharts.core.presentation.extensions.viewBinding
-import com.igorvd.bitcoincharts.features.charts.R
 import com.igorvd.bitcoincharts.features.charts.databinding.ActivityChartBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
@@ -39,7 +36,7 @@ class BitcoinChartActivity : AppCompatActivity() {
     private fun setupObservers() = lifecycleScope.launch {
         lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED) {
             viewModel.chartStateFlow.filterNotNull().collect {
-                layoutContainer.setChart(it)
+                layoutContainer.setScreenContent(it)
             }
         }
     }

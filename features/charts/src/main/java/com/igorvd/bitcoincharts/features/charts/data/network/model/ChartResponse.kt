@@ -6,15 +6,15 @@ import com.squareup.moshi.Json
 
 data class ChartResponse(
     @field:Json(name = "name")
-    private val name: String,
+    val name: String,
     @field:Json(name = "unit")
-    private val unit: String,
+    val unit: String,
     @field:Json(name = "period")
-    private val period: String,
+    val period: String,
     @field:Json(name = "description")
-    private val description: String,
+    val description: String,
     @field:Json(name = "values")
-    private val entries: List<ChartEntryResponse>
+    val entries: List<ChartEntryResponse>
 ) {
     fun toChart() = Chart(
         name = name,
@@ -27,9 +27,9 @@ data class ChartResponse(
 
 data class ChartEntryResponse(
     @field:Json(name = "x")
-    private val x: Long,
+    val x: Long,
     @field:Json(name = "y")
-    private val y: Double,
+    val y: Double,
 ) {
     fun toChartEntry() = ChartEntry(
         x = x,

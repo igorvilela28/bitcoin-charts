@@ -7,7 +7,7 @@ import javax.inject.Inject
 class BitcoinFormatterImpl @Inject constructor() : BitcoinFormatter {
 
     override fun format(
-        value: Float,
+        value: Double,
         fractionDigits: Int,
         appendUnit: Boolean
     ): String {

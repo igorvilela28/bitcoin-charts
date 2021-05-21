@@ -1,11 +1,16 @@
 package com.igorvd.bitcoincharts.core.domain.formatter
 
 import android.icu.text.CompactDecimalFormat
+import java.text.NumberFormat
 import java.util.Locale
 import javax.inject.Inject
 import kotlin.math.roundToLong
 
 class NumberFormatterImpl @Inject constructor() : NumberFormatter {
+
+    override fun format(value: Int): String {
+        return NumberFormat.getInstance(Locale.getDefault()).format(value)
+    }
 
     override fun formatCompact(value: Double): String {
         val compactDecimalFormat =

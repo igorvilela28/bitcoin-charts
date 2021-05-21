@@ -17,7 +17,7 @@ class MetricScreenChartYMapper @Inject constructor(
         val formattedY = when (chartType) {
             ChartType.MARKET_PRICE -> currencyFormatter.formatUSD(y)
             ChartType.TOTAL_TRANSACTION_FEES -> bitcoinFormatter.format(
-                y.toFloat(),
+                y,
                 TOTAL_TRANSACTION_FEES_FRACTION_DIGITS,
                 true
             )

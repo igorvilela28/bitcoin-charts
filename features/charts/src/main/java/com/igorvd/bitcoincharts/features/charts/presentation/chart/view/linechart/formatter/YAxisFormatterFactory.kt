@@ -18,7 +18,7 @@ class YAxisFormatterFactory @Inject constructor(
             ChartType.ESTIMATED_TRANSACTION_VOLUME_BTC,
             ChartType.MINERS_REVENUE ->
                 numberFormatter.formatCompact(value.toDouble())
-            ChartType.TOTAL_TRANSACTION_FEES -> bitcoinFormatter.format(value, 0)
+            ChartType.TOTAL_TRANSACTION_FEES -> bitcoinFormatter.format(value.toDouble(), 0)
         }
     }
 }

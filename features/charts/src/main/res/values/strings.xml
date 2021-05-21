@@ -2,6 +2,26 @@
 
     <string name="home_title">Bitcoin Stats</string>
     <string name="home_description">Summary of bitcoin statistics for the previous 24 hour period.</string>
+
+    <string name="home_stats_category_market_summary">Market Summary</string>
+    <string name="home_stats_label_market_price">Market Price</string>
+    <string name="home_stats_label_trade_volume">Trade Volume</string>
+
+    <string name="home_stats_category_block_summary">Block Summary</string>
+    <string name="home_stats_label_blocks_mined">Blocks Mined</string>
+    <string name="home_stats_label_time_between_blocks">Time Between Blocks</string>
+    <string name="home_stats_value_time_between_blocks">%d minutes</string>
+    <string name="home_stats_label_bitcoins_mined">Bitcoins Mined</string>
+
+    <string name="home_stats_category_transaction_summary">Transaction Summary</string>
+    <string name="home_stats_label_total_transaction_fees">Total Transaction Fees (BTC)</string>
+    <string name="home_stats_label_number_of_transactions">Number of Transactions</string>
+    <string name="home_stats_label_total_output_volume">Total Output Volume (BTC)</string>
+    <string name="home_stats_label_estimated_transaction_volume">Estimated Transaction Volume (BTC)</string>
+
+    <string name="home_stats_category_mining_cost">Mining Cost</string>
+    <string name="home_stats_label_total_miners_revenue">Total Miners Revenue (USD)</string>
+
     <string name="home_stats_metrics_view_chart_button">View Chart</string>
 
 </resources>

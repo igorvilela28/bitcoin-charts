@@ -22,7 +22,7 @@ class NumberFormatterImpl @Inject constructor() : NumberFormatter {
 
     private fun getSignificantDigits(value: Double): Int {
         var numberString = value.roundToLong().toString()
-        while (numberString.last() == '0') {
+        while (numberString.last() == '0' && numberString.length > 1) {
             numberString = numberString.dropLast(1)
         }
         return if (numberString.length >= ONE_MILLION.toString().length - 1 && value >= ONE_MILLION) {

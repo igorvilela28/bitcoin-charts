@@ -21,7 +21,8 @@ class MetricScreenChartYMapper @Inject constructor(
                 TOTAL_TRANSACTION_FEES_FRACTION_DIGITS,
                 true
             )
-            ChartType.NUMBER_OF_TRANSACTIONS -> {
+            ChartType.NUMBER_OF_TRANSACTIONS,
+            ChartType.MINERS_REVENUE -> {
                 numberFormatter.formatCompact(y)
             }
             ChartType.OUTPUT_VOLUME,

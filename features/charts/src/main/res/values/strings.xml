@@ -1,3 +1,7 @@
 <resources>
 
+    <string name="home_title">Bitcoin Stats</string>
+    <string name="home_description">Summary of bitcoin statistics for the previous 24 hour period.</string>
+    <string name="home_stats_metrics_view_chart_button">View Chart</string>
+
 </resources>

@@ -1,6 +1,5 @@
 package com.igorvd.bitcoincharts.features.charts.data.network.mapper
 
-import com.igorvd.bitcoincharts.core.domain.formatter.CurrencyFormatter
 import com.igorvd.bitcoincharts.core.domain.service.datetime.DatePattern
 import com.igorvd.bitcoincharts.core.domain.service.datetime.DateTimeService
 import com.igorvd.bitcoincharts.features.charts.data.network.model.ChartEntryResponse
@@ -16,7 +15,7 @@ import javax.inject.Inject
 
 class MetricScreenMapper @Inject constructor(
     private val dateTimeService: DateTimeService,
-    private val currencyFormatter: CurrencyFormatter
+    private val yMapper: MetricScreenChartYMapper
 ) {
 
     fun mapFromChart(chart: ChartResponse, chartType: ChartType): BitcoinMetricScreen {
@@ -47,12 +46,12 @@ class MetricScreenMapper @Inject constructor(
         )
     }
 
-    private fun mapYAxisConfig(entries: List<ChartEntryResponse>, chartType: ChartType): YAxisConfig {
+    private fun mapYAxisConfig(
+        entries: List<ChartEntryResponse>,
+        chartType: ChartType
+    ): YAxisConfig {
 
-        val minValue = when (chartType) {
-            ChartType.MARKET_PRICE -> 0F
-        }
-
+        val minValue = yMapper.mapYMinValue(entries, chartType)
         val maxValue = entries.maxByOrNull { it.y }?.y?.toFloat() ?: 0F
 
         return YAxisConfig(
@@ -74,13 +73,8 @@ class MetricScreenMapper @Inject constructor(
     }
 
     private fun ChartEntryResponse.formatEntry(chartType: ChartType): MetricChartFormattedEntry {
-
         val formattedX = dateTimeService.convertTimestampToDatePattern(x, DatePattern.MM_dd_yy)
-
-        val formattedY = when (chartType) {
-            ChartType.MARKET_PRICE -> currencyFormatter.formatUSD(y)
-        }
-
+        val formattedY = yMapper.formatYValue(y, chartType)
         return MetricChartFormattedEntry(formattedX, formattedY)
     }
 }

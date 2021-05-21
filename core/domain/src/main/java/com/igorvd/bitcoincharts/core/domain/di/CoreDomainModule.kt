@@ -1,5 +1,7 @@
 package com.igorvd.bitcoincharts.core.domain.di
 
+import com.igorvd.bitcoincharts.core.domain.formatter.BitcoinFormatter
+import com.igorvd.bitcoincharts.core.domain.formatter.BitcoinFormatterImpl
 import com.igorvd.bitcoincharts.core.domain.formatter.CurrencyFormatter
 import com.igorvd.bitcoincharts.core.domain.formatter.CurrencyFormatterImpl
 import com.igorvd.bitcoincharts.core.domain.service.datetime.DateTimeService
@@ -18,6 +20,12 @@ object CoreDomainModule {
     @Singleton
     fun providesCurrencyFormatter(currencyFormatterImpl: CurrencyFormatterImpl): CurrencyFormatter {
         return currencyFormatterImpl
+    }
+
+    @Provides
+    @Singleton
+    fun providesBitcoinFormatter(bitcoinFormatterImpl: BitcoinFormatterImpl): BitcoinFormatter {
+        return bitcoinFormatterImpl
     }
 
     @Provides

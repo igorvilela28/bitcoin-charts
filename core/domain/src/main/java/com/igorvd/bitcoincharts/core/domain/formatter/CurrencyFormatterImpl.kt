@@ -1,6 +1,5 @@
 package com.igorvd.bitcoincharts.core.domain.formatter
 
-import android.icu.text.CompactDecimalFormat
 import java.text.NumberFormat
 import java.util.Currency
 import java.util.Locale
@@ -10,17 +9,12 @@ class CurrencyFormatterImpl @Inject constructor() : CurrencyFormatter {
 
     override fun formatUSD(value: Double): String {
         val format = NumberFormat.getCurrencyInstance(Locale.getDefault()).apply {
-            currency = Currency.getInstance("USD")
+            currency = Currency.getInstance(USD_CURRENCY_CODE)
         }
         return format.format(value)
     }
 
-    override fun formatCompact(value: Double): String {
-        val compactDecimalFormat =
-            CompactDecimalFormat.getInstance(
-                Locale.getDefault(),
-                CompactDecimalFormat.CompactStyle.SHORT
-            )
-        return compactDecimalFormat.format(value)
+    companion object {
+        const val USD_CURRENCY_CODE = "USD"
     }
 }

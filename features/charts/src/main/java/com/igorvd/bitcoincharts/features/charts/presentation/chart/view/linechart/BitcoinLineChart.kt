@@ -37,7 +37,7 @@ class BitcoinLineChart @JvmOverloads constructor(
 
     fun setChart(chart: BitcoinMetricChart) {
         setupChart(chart)
-        setupXAxis(chart)
+        setupXAxis()
         setupYAxis(chart)
         setDataSet(chart)
         invalidate()
@@ -64,19 +64,15 @@ class BitcoinLineChart @JvmOverloads constructor(
         marker = CustomMarkerView(context)
     }
 
-    private fun LineChart.setupXAxis(chart: BitcoinMetricChart) = with(xAxis) {
+    private fun LineChart.setupXAxis() = with(xAxis) {
         setDrawGridLines(false)
         position = XAxis.XAxisPosition.BOTTOM
         yOffset = X_AXIS_Y_OFFSET
         setAvoidFirstLastClipping(true)
         setLabelCount(X_AXIS_LABEL_COUNT, true)
-        axisMinimum = chart.xAxisConfig.minValue
-        axisMaximum = chart.xAxisConfig.maxValue
     }
 
     private fun LineChart.setupYAxis(chart: BitcoinMetricChart) = with(axisLeft) {
-        axisMinimum = chart.yAxisConfig.minValue
-        axisMaximum = chart.yAxisConfig.maxValue
         setDrawGridLines(false)
         setDrawAxisLine(true)
         setPosition(YAxis.YAxisLabelPosition.OUTSIDE_CHART)

@@ -20,10 +20,19 @@ class NumberFormatterImpl @Inject constructor() : NumberFormatter {
     }
 
     private fun getSignificantDigits(value: Double): Int {
-        var number = value.toLong().toString()
-        while (number.last() == '0') {
-            number = number.dropLast(1)
+        var numberString = value.toLong().toString()
+        while (numberString.last() == '0') {
+            numberString = numberString.dropLast(1)
         }
-        return number.length
+        return if (numberString.length >= ONE_MILLION.toString().length - 1 && value >= ONE_MILLION) {
+            ONE_MILLION_DIGITS
+        } else {
+            numberString.length
+        }
+    }
+
+    companion object {
+        const val ONE_MILLION = 1_000_000L
+        const val ONE_MILLION_DIGITS = 4
     }
 }

@@ -16,10 +16,6 @@ class BitcoinFormatterImpl @Inject constructor() : BitcoinFormatter {
             maximumFractionDigits = fractionDigits
         }
         val formattedValue = numberFormat.format(value)
-        return if (appendUnit) "$formattedValue $BITCOIN_UNIT" else formattedValue
-    }
-
-    companion object {
-        private const val BITCOIN_UNIT = "BTC"
+        return if (appendUnit) "$formattedValue ${BitcoinFormatter.BITCOIN_UNIT}" else formattedValue
     }
 }

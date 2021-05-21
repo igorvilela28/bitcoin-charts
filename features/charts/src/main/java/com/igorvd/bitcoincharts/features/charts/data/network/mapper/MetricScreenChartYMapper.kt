@@ -25,6 +25,9 @@ class MetricScreenChartYMapper @Inject constructor(
             ChartType.NUMBER_OF_TRANSACTIONS -> {
                 numberFormatter.formatCompact(y)
             }
+            ChartType.OUTPUT_VOLUME -> {
+                "${numberFormatter.formatCompact(y)} ${BitcoinFormatter.BITCOIN_UNIT}"
+            }
         }
         return formattedY
     }

@@ -8,10 +8,13 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import com.igorvd.bitcoincharts.core.presentation.extensions.collect
 import com.igorvd.bitcoincharts.core.presentation.extensions.launch
 import com.igorvd.bitcoincharts.core.presentation.extensions.viewBinding
 import com.igorvd.bitcoincharts.features.charts.databinding.ActivityChartsHomeBinding
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.launch
@@ -22,7 +25,7 @@ class ChartsHomeActivity : AppCompatActivity() {
     private val viewModel: ChartsHomeViewModel by viewModels()
     private val viewBinding: ActivityChartsHomeBinding by viewBinding(ActivityChartsHomeBinding::inflate)
     private val layoutContainer by lazy {
-        ChartsHomeLayoutContainer(viewBinding)
+        ChartsHomeLayoutContainer(this, viewBinding)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,31 +35,18 @@ class ChartsHomeActivity : AppCompatActivity() {
         viewModel.launch { getHomeScreen() }
     }
 
-    private fun setupObservers() {
-        lifecycleScope.launch {
-            lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED) {
-                viewModel.apply {
-                    loadingStateFlow.filterNotNull().collect {
-                        layoutContainer.setLoading(it)
-                    }
-                }
-            }
+    private fun setupObservers() = viewModel.apply {
+        collect(loadingStateFlow.filterNotNull()) {
+            layoutContainer.setLoading(it)
         }
-
-        lifecycleScope.launch {
-            lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED) {
-                viewModel.homeStateFlow.filterNotNull().collect {
-                    layoutContainer.setStatsHomeScreen(it)
-                }
-            }
+        collect(homeStateFlow.filterNotNull()) {
+            layoutContainer.setStatsHomeScreen(it)
         }
-
-
     }
 
-companion object {
-    fun newIntent(context: Context): Intent {
-        return Intent(context, ChartsHomeActivity::class.java)
+    companion object {
+        fun newIntent(context: Context): Intent {
+            return Intent(context, ChartsHomeActivity::class.java)
+        }
     }
-}
 }

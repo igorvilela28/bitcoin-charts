@@ -9,9 +9,12 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import com.igorvd.bitcoincharts.core.domain.service.datetime.DateTimeService
+import com.igorvd.bitcoincharts.core.presentation.extensions.collect
+import com.igorvd.bitcoincharts.core.presentation.extensions.extra
 import com.igorvd.bitcoincharts.core.presentation.extensions.launch
 import com.igorvd.bitcoincharts.core.presentation.extensions.viewBinding
 import com.igorvd.bitcoincharts.features.charts.databinding.ActivityChartBinding
+import com.igorvd.bitcoincharts.features.charts.domain.model.ChartType
 import com.igorvd.bitcoincharts.features.charts.presentation.chart.view.linechart.formatter.YAxisFormatterFactory
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
@@ -22,11 +25,15 @@ import javax.inject.Inject
 @AndroidEntryPoint
 class BitcoinChartActivity : AppCompatActivity() {
 
+    private val chartType: ChartType by extra(EXTRA_CHART_TYPE)
     private val viewModel: BitcoinChartViewModel by viewModels()
     private val viewBinding: ActivityChartBinding by viewBinding(ActivityChartBinding::inflate)
 
-    @Inject protected lateinit var dateTimeService: DateTimeService
-    @Inject protected lateinit var yAxisFormatterFactory: YAxisFormatterFactory
+    @Inject
+    protected lateinit var dateTimeService: DateTimeService
+
+    @Inject
+    protected lateinit var yAxisFormatterFactory: YAxisFormatterFactory
     private val layoutContainer by lazy {
         BitcoinChartLayoutContainer(viewBinding, dateTimeService, yAxisFormatterFactory)
     }
@@ -36,20 +43,21 @@ class BitcoinChartActivity : AppCompatActivity() {
         setContentView(viewBinding.root)
         layoutContainer.setup()
         setupObservers()
-        viewModel.launch { getChart() }
+        viewModel.launch { getChart(chartType) }
     }
 
-    private fun setupObservers() = lifecycleScope.launch {
-        lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED) {
-            viewModel.chartStateFlow.filterNotNull().collect {
-                layoutContainer.setScreenContent(it)
-            }
+    private fun setupObservers() = viewModel.apply {
+        collect(chartStateFlow.filterNotNull()) {
+            layoutContainer.setScreenContent(it)
         }
     }
 
     companion object {
-        fun newIntent(context: Context): Intent {
-            return Intent(context, BitcoinChartActivity::class.java)
+        private const val EXTRA_CHART_TYPE = "chart_type"
+        fun newIntent(context: Context, chartType: ChartType): Intent {
+            return Intent(context, BitcoinChartActivity::class.java).apply {
+                putExtra(EXTRA_CHART_TYPE, chartType)
+            }
         }
     }
 }

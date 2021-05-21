@@ -15,8 +15,8 @@ class BitcoinChartViewModel @Inject constructor(
 
     val chartStateFlow = MutableStateFlow<BitcoinMetricScreen?>(null)
 
-    suspend fun getChart() {
-        val response = getMetricScreenUseCase.get(ChartType.MINERS_REVENUE)
+    suspend fun getChart(chartType: ChartType) {
+        val response = getMetricScreenUseCase.get(chartType)
         chartStateFlow.value = response
     }
 }

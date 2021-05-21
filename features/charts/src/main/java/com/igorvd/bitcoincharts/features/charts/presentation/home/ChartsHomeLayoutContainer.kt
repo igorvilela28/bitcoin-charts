@@ -1,11 +1,14 @@
 package com.igorvd.bitcoincharts.features.charts.presentation.home
 
-import android.util.Log
 import androidx.core.view.isVisible
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.igorvd.bitcoincharts.features.charts.databinding.ActivityChartsHomeBinding
 import com.igorvd.bitcoincharts.features.charts.domain.model.BitcoinStatsHomeScreen
+import com.igorvd.bitcoincharts.features.charts.presentation.chart.BitcoinChartActivity
+import com.igorvd.bitcoincharts.features.charts.presentation.home.adapter.StatsCategoryAdapter
 
 class ChartsHomeLayoutContainer(
+    private val activity: ChartsHomeActivity,
     private val viewBinding: ActivityChartsHomeBinding
 ) {
 
@@ -21,7 +24,12 @@ class ChartsHomeLayoutContainer(
 
         tvTitle.text = data.title
         tvDescription.text = data.description
-
-        Log.d("Igor", data.toString())
+        rvStatsCategories.apply {
+            layoutManager = LinearLayoutManager(rvStatsCategories.context)
+            adapter = StatsCategoryAdapter(data.statsCategories) {
+                val intent = BitcoinChartActivity.newIntent(activity, it)
+                activity.startActivity(intent)
+            }
+        }
     }
 }

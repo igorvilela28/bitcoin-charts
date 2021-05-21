@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import com.igorvd.bitcoincharts.core.presentation.extensions.launch
 import com.igorvd.bitcoincharts.core.presentation.extensions.viewBinding
 import com.igorvd.bitcoincharts.features.charts.databinding.ActivityChartsHomeBinding
 import com.igorvd.bitcoincharts.features.charts.presentation.chart.BitcoinChartActivity
@@ -20,11 +21,12 @@ class ChartsHomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(viewBinding.root)
 
+        viewModel.launch { getHomeScreen() }
+
         viewBinding.button.setOnClickListener {
             val intent = BitcoinChartActivity.newIntent(this)
             startActivity(intent)
         }
-
     }
 
     companion object {

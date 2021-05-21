@@ -3,6 +3,7 @@ package com.igorvd.bitcoincharts.core.domain.formatter
 import android.icu.text.CompactDecimalFormat
 import java.util.Locale
 import javax.inject.Inject
+import kotlin.math.roundToLong
 
 class NumberFormatterImpl @Inject constructor() : NumberFormatter {
 
@@ -20,7 +21,7 @@ class NumberFormatterImpl @Inject constructor() : NumberFormatter {
     }
 
     private fun getSignificantDigits(value: Double): Int {
-        var numberString = value.toLong().toString()
+        var numberString = value.roundToLong().toString()
         while (numberString.last() == '0') {
             numberString = numberString.dropLast(1)
         }

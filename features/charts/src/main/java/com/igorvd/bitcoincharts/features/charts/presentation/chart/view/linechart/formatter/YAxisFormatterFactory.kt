@@ -15,6 +15,7 @@ class YAxisFormatterFactory @Inject constructor(
             ChartType.MARKET_PRICE,
             ChartType.NUMBER_OF_TRANSACTIONS,
             ChartType.OUTPUT_VOLUME,
+            ChartType.ESTIMATED_TRANSACTION_VOLUME_BTC
             -> numberFormatter.formatCompact(value.toDouble())
             ChartType.TOTAL_TRANSACTION_FEES -> bitcoinFormatter.format(value, 0)
         }

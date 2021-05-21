@@ -3,7 +3,6 @@ package com.igorvd.bitcoincharts.features.charts.data.network.mapper
 import com.igorvd.bitcoincharts.core.domain.formatter.BitcoinFormatter
 import com.igorvd.bitcoincharts.core.domain.formatter.CurrencyFormatter
 import com.igorvd.bitcoincharts.core.domain.formatter.NumberFormatter
-import com.igorvd.bitcoincharts.features.charts.data.network.model.ChartEntryResponse
 import com.igorvd.bitcoincharts.features.charts.domain.model.ChartType
 import javax.inject.Inject
 
@@ -25,7 +24,8 @@ class MetricScreenChartYMapper @Inject constructor(
             ChartType.NUMBER_OF_TRANSACTIONS -> {
                 numberFormatter.formatCompact(y)
             }
-            ChartType.OUTPUT_VOLUME -> {
+            ChartType.OUTPUT_VOLUME,
+            ChartType.ESTIMATED_TRANSACTION_VOLUME_BTC -> {
                 "${numberFormatter.formatCompact(y)} ${BitcoinFormatter.BITCOIN_UNIT}"
             }
         }

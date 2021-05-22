@@ -36,8 +36,8 @@
         <item name="android:focusable">true</item>
         <item name="android:textColor">@color/purple_500</item>
         <item name="android:padding">@dimen/margin_medium</item>
-        <item name="background">?attr/selectableItemBackground</item>
-        <item name="textAllCaps">true</item>
+        <item name="android:background">?attr/selectableItemBackground</item>
+        <item name="android:textAllCaps">true</item>
     </style>
 
     <style name="Divider">

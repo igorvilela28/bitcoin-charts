@@ -29,9 +29,6 @@ class ChartsHomeActivity : AppCompatActivity() {
     }
 
     private fun setupObservers() = viewModel.apply {
-        collect(loadingStateFlow.filterNotNull()) {
-            layoutContainer.setLoading(it)
-        }
         collect(homeStateFlow.filterNotNull()) { state ->
             layoutContainer.setState(state)
         }

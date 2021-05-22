@@ -13,26 +13,21 @@ class ChartsHomeLayoutContainer(
     private val viewBinding: ActivityChartsHomeBinding
 ) {
 
-    fun setLoading(isLoading: Boolean) = viewBinding.apply {
-        pbLoading.isVisible = isLoading
-        if (isLoading) {
-            nsvRoot.isVisible = false
-            errorView.isVisible = false
-        }
-    }
-
     fun setState(state: HomeState) = viewBinding.apply {
-
+        state.setViewsVisibility()
         when (state) {
             is HomeState.ShowStats -> state.set()
             is HomeState.ShowError -> state.set()
         }
+    }
 
+    fun HomeState.setViewsVisibility() = viewBinding.apply {
+        pbLoading.isVisible = this@setViewsVisibility is HomeState.Loading
+        nsvRoot.isVisible = this@setViewsVisibility is HomeState.ShowStats
+        errorView.isVisible = this@setViewsVisibility is HomeState.ShowError
     }
 
     private fun HomeState.ShowStats.set() = viewBinding.apply {
-        nsvRoot.isVisible = true
-
         tvTitle.text = homeScreen.title
         tvDescription.text = homeScreen.description
         rvStatsCategories.apply {
@@ -45,7 +40,6 @@ class ChartsHomeLayoutContainer(
     }
 
     private fun HomeState.ShowError.set() = viewBinding.apply {
-        errorView.isVisible = true
         errorView.setData(errorViewData) {
             activity.viewModel.launch { getHomeScreen() }
         }

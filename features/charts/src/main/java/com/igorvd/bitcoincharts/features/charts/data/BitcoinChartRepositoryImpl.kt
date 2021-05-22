@@ -4,8 +4,6 @@ import com.igorvd.bitcoincharts.core.data.network.request.doRequest
 import com.igorvd.bitcoincharts.features.charts.data.network.api.BlockchainApi
 import com.igorvd.bitcoincharts.features.charts.data.network.mapper.MetricScreenMapper
 import com.igorvd.bitcoincharts.features.charts.data.network.mapper.StatsHomeScreenMapper
-import com.igorvd.bitcoincharts.features.charts.domain.model.BitcoinMetricScreen
-import com.igorvd.bitcoincharts.features.charts.domain.model.BitcoinStatsHomeScreen
 import com.igorvd.bitcoincharts.features.charts.domain.model.ChartType
 import com.igorvd.bitcoincharts.features.charts.domain.repository.BitcoinChartRepository
 import javax.inject.Inject

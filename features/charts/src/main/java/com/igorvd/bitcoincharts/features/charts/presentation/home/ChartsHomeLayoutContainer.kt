@@ -32,8 +32,8 @@ class ChartsHomeLayoutContainer(
         tvDescription.text = homeScreen.description
         rvStatsCategories.apply {
             layoutManager = LinearLayoutManager(rvStatsCategories.context)
-            adapter = StatsCategoryAdapter(homeScreen.statsCategories) {
-                val intent = BitcoinChartActivity.newIntent(activity, it)
+            adapter = StatsCategoryAdapter(homeScreen.statsCategories) { chartType ->
+                val intent = BitcoinChartActivity.newIntent(activity, chartType)
                 activity.startActivity(intent)
             }
         }

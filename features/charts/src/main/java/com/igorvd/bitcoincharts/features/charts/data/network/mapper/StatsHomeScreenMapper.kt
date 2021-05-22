@@ -31,110 +31,115 @@ class StatsHomeScreenMapper @Inject constructor(
 
     private fun StatsResponse.mapCategories(): List<StatsCategory> {
         return listOf(
+            mapMarketSummaryCategory(),
+            mapBlockSummaryCategory(),
+            mapTransactionSummaryCategory(),
+            mapMiningCostCategory()
+        )
+    }
 
-            // market summary
-            StatsCategory(
-                title = context.getString(R.string.home_stats_category_market_summary),
-                metrics = listOf(
-                    BitcoinMetric(
-                        label = context.getString(R.string.home_stats_label_market_price),
-                        value = currencyFormatter.formatUSD(marketPriceUsd),
-                        chartType = ChartType.MARKET_PRICE
-                    ),
-                    BitcoinMetric(
-                        label = context.getString(R.string.home_stats_label_trade_volume),
-                        value = currencyFormatter.formatUSD(tradeVolumeUsd)
-                    ),
-                    BitcoinMetric(
-                        label = context.getString(R.string.home_stats_label_trade_volume),
-                        value = bitcoinFormatter.format(
-                            tradeVolumeBtc,
-                            BITCOIN_FRACTION_DIGITS,
-                            true
-                        )
-                    )
-                )
-            ),
-
-            // block summary
-            StatsCategory(
-                title = context.getString(R.string.home_stats_category_block_summary),
-                metrics = listOf(
-                    BitcoinMetric(
-                        label = context.getString(R.string.home_stats_label_blocks_mined),
-                        value = nBlocksMined.toString()
-                    ),
-                    BitcoinMetric(
-                        label = context.getString(R.string.home_stats_label_time_between_blocks),
-                        value = context.getString(
-                            R.string.home_stats_value_time_between_blocks,
-                            minutesBetweenBlocks.toInt()
-                        )
-                    ),
-                    BitcoinMetric(
-                        label = context.getString(R.string.home_stats_label_bitcoins_mined),
-                        value = bitcoinFormatter.format(
-                            nBtcMined * BITCOIN_FRACTION_FACTOR,
-                            BITCOIN_FRACTION_DIGITS,
-                            true
-                        )
-                    )
-                )
-            ),
-
-            //transaction summary
-
-            StatsCategory(
-                title = context.getString(R.string.home_stats_category_transaction_summary),
-                metrics = listOf(
-                    BitcoinMetric(
-                        label = context.getString(R.string.home_stats_label_total_transaction_fees),
-                        value = bitcoinFormatter.format(
-                            totalFeesBtc * BITCOIN_FRACTION_FACTOR,
-                            BITCOIN_FRACTION_DIGITS,
-                            true
-                        ),
-                        chartType = ChartType.TOTAL_TRANSACTION_FEES
-                    ),
-                    BitcoinMetric(
-                        label = context.getString(R.string.home_stats_label_number_of_transactions),
-                        value = numberFormatter.format(nTx),
-                        chartType = ChartType.NUMBER_OF_TRANSACTIONS
-                    ),
-                    BitcoinMetric(
-                        label = context.getString(R.string.home_stats_label_total_output_volume),
-                        value = bitcoinFormatter.format(
-                            totalBtcSent * BITCOIN_FRACTION_FACTOR,
-                            BITCOIN_FRACTION_DIGITS,
-                            true
-                        ),
-                        chartType = ChartType.OUTPUT_VOLUME
-                    ),
-                    BitcoinMetric(
-                        label = context.getString(R.string.home_stats_label_estimated_transaction_volume),
-                        value = bitcoinFormatter.format(
-                            estimatedBtcSent * BITCOIN_FRACTION_FACTOR,
-                            BITCOIN_FRACTION_DIGITS,
-                            true
-                        ),
-                        chartType = ChartType.ESTIMATED_TRANSACTION_VOLUME_BTC
-                    )
-                )
-            ),
-
-            // mining cost
-
-            StatsCategory(
-                title = context.getString(R.string.home_stats_category_mining_cost),
-                metrics = listOf(
-                    BitcoinMetric(
-                        label = context.getString(R.string.home_stats_label_total_miners_revenue),
-                        value = currencyFormatter.formatUSD(minersRevenueUsd),
-                        chartType = ChartType.MINERS_REVENUE
+    private fun StatsResponse.mapMarketSummaryCategory(): StatsCategory {
+        return StatsCategory(
+            title = context.getString(R.string.home_stats_category_market_summary),
+            metrics = listOf(
+                BitcoinMetric(
+                    label = context.getString(R.string.home_stats_label_market_price),
+                    value = currencyFormatter.formatUSD(marketPriceUsd),
+                    chartType = ChartType.MARKET_PRICE
+                ),
+                BitcoinMetric(
+                    label = context.getString(R.string.home_stats_label_trade_volume),
+                    value = currencyFormatter.formatUSD(tradeVolumeUsd)
+                ),
+                BitcoinMetric(
+                    label = context.getString(R.string.home_stats_label_trade_volume),
+                    value = bitcoinFormatter.format(
+                        tradeVolumeBtc,
+                        BITCOIN_FRACTION_DIGITS,
+                        true
                     )
                 )
             )
+        )
+    }
 
+    private fun StatsResponse.mapBlockSummaryCategory(): StatsCategory {
+        return StatsCategory(
+            title = context.getString(R.string.home_stats_category_block_summary),
+            metrics = listOf(
+                BitcoinMetric(
+                    label = context.getString(R.string.home_stats_label_blocks_mined),
+                    value = nBlocksMined.toString()
+                ),
+                BitcoinMetric(
+                    label = context.getString(R.string.home_stats_label_time_between_blocks),
+                    value = context.getString(
+                        R.string.home_stats_value_time_between_blocks,
+                        minutesBetweenBlocks.toInt()
+                    )
+                ),
+                BitcoinMetric(
+                    label = context.getString(R.string.home_stats_label_bitcoins_mined),
+                    value = bitcoinFormatter.format(
+                        nBtcMined * BITCOIN_FRACTION_FACTOR,
+                        BITCOIN_FRACTION_DIGITS,
+                        true
+                    )
+                )
+            )
+        )
+    }
+
+    private fun StatsResponse.mapTransactionSummaryCategory(): StatsCategory {
+        return StatsCategory(
+            title = context.getString(R.string.home_stats_category_transaction_summary),
+            metrics = listOf(
+                BitcoinMetric(
+                    label = context.getString(R.string.home_stats_label_total_transaction_fees),
+                    value = bitcoinFormatter.format(
+                        totalFeesBtc * BITCOIN_FRACTION_FACTOR,
+                        BITCOIN_FRACTION_DIGITS,
+                        true
+                    ),
+                    chartType = ChartType.TOTAL_TRANSACTION_FEES
+                ),
+                BitcoinMetric(
+                    label = context.getString(R.string.home_stats_label_number_of_transactions),
+                    value = numberFormatter.format(nTx),
+                    chartType = ChartType.NUMBER_OF_TRANSACTIONS
+                ),
+                BitcoinMetric(
+                    label = context.getString(R.string.home_stats_label_total_output_volume),
+                    value = bitcoinFormatter.format(
+                        totalBtcSent * BITCOIN_FRACTION_FACTOR,
+                        BITCOIN_FRACTION_DIGITS,
+                        true
+                    ),
+                    chartType = ChartType.OUTPUT_VOLUME
+                ),
+                BitcoinMetric(
+                    label = context.getString(R.string.home_stats_label_estimated_transaction_volume),
+                    value = bitcoinFormatter.format(
+                        estimatedBtcSent * BITCOIN_FRACTION_FACTOR,
+                        BITCOIN_FRACTION_DIGITS,
+                        true
+                    ),
+                    chartType = ChartType.ESTIMATED_TRANSACTION_VOLUME_BTC
+                )
+            )
+        )
+    }
+
+    private fun StatsResponse.mapMiningCostCategory(): StatsCategory {
+        return StatsCategory(
+            title = context.getString(R.string.home_stats_category_mining_cost),
+            metrics = listOf(
+                BitcoinMetric(
+                    label = context.getString(R.string.home_stats_label_total_miners_revenue),
+                    value = currencyFormatter.formatUSD(minersRevenueUsd),
+                    chartType = ChartType.MINERS_REVENUE
+                )
+            )
         )
     }
 

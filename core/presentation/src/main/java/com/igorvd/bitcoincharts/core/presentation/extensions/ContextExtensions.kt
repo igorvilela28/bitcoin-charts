@@ -14,6 +14,6 @@ fun Context.getDrawableCompat(drawableRes: Int): Drawable? {
     return ContextCompat.getDrawable(this, drawableRes)
 }
 
-fun Context.getFont(fontId: Int): Typeface? {
+fun Context.getFontCompat(fontId: Int): Typeface? {
     return ResourcesCompat.getFont(this, fontId)
 }

@@ -4,11 +4,9 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
-import com.igorvd.bitcoincharts.features.charts.databinding.ItemStatsCategoryBinding
 import com.igorvd.bitcoincharts.features.charts.databinding.ItemStatsMetricBinding
 import com.igorvd.bitcoincharts.features.charts.domain.model.BitcoinMetric
 import com.igorvd.bitcoincharts.features.charts.domain.model.ChartType
-import com.igorvd.bitcoincharts.features.charts.domain.model.StatsCategory
 
 class StatsMetricAdapter(
     private val items: List<BitcoinMetric>,

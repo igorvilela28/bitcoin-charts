@@ -25,12 +25,12 @@ class BitcoinChartActivity : AppCompatActivity() {
     val viewModel: BitcoinChartViewModel by viewModels()
 
     @Inject
-    protected lateinit var dateTimeService: DateTimeService
+    lateinit var dateTimeService: DateTimeService
 
     @Inject
-    protected lateinit var yAxisFormatterFactory: YAxisFormatterFactory
+    lateinit var yAxisFormatterFactory: YAxisFormatterFactory
     private val layoutContainer by lazy {
-        BitcoinChartLayoutContainer(this, viewBinding, dateTimeService, yAxisFormatterFactory)
+        BitcoinChartLayoutContainer(this, viewBinding)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

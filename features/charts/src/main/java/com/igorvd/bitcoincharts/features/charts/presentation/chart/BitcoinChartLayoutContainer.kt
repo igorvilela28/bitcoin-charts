@@ -5,20 +5,14 @@ import androidx.core.view.isVisible
 import com.github.mikephil.charting.data.Entry
 import com.github.mikephil.charting.highlight.Highlight
 import com.github.mikephil.charting.listener.OnChartValueSelectedListener
-import com.igorvd.bitcoincharts.core.domain.service.datetime.DateTimeService
 import com.igorvd.bitcoincharts.core.presentation.extensions.launch
 import com.igorvd.bitcoincharts.features.charts.databinding.ActivityChartBinding
-import com.igorvd.bitcoincharts.features.charts.domain.model.BitcoinMetricScreen
 import com.igorvd.bitcoincharts.features.charts.domain.model.MetricChartFormattedEntry
 import com.igorvd.bitcoincharts.features.charts.presentation.chart.model.ChartScreenState
-import com.igorvd.bitcoincharts.features.charts.presentation.chart.view.linechart.formatter.YAxisFormatterFactory
-import com.igorvd.bitcoincharts.features.charts.presentation.home.model.HomeState
 
 class BitcoinChartLayoutContainer(
     private val activity: BitcoinChartActivity,
-    private val viewBinding: ActivityChartBinding,
-    private val dateTimeService: DateTimeService,
-    private val yAxisFormatterFactory: YAxisFormatterFactory
+    private val viewBinding: ActivityChartBinding
 ) {
 
     fun setup() = viewBinding.apply {
@@ -26,7 +20,7 @@ class BitcoinChartLayoutContainer(
             activity.finish()
         }
         lineChart.apply {
-            setup(dateTimeService, yAxisFormatterFactory)
+            setup(activity.dateTimeService, activity.yAxisFormatterFactory)
             setOnChartValueSelectedListener(object : OnChartValueSelectedListener {
 
                 override fun onValueSelected(e: Entry, h: Highlight) {

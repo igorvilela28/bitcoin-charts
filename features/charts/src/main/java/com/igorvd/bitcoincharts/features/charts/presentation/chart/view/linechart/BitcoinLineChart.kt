@@ -14,7 +14,7 @@ import com.github.mikephil.charting.interfaces.datasets.ILineDataSet
 import com.igorvd.bitcoincharts.core.domain.service.datetime.DateTimeService
 import com.igorvd.bitcoincharts.core.presentation.extensions.getColorCompat
 import com.igorvd.bitcoincharts.core.presentation.extensions.getDrawableCompat
-import com.igorvd.bitcoincharts.core.presentation.extensions.getFont
+import com.igorvd.bitcoincharts.core.presentation.extensions.getFontCompat
 import com.igorvd.bitcoincharts.features.charts.R
 import com.igorvd.bitcoincharts.features.charts.domain.model.BitcoinMetricChart
 import com.igorvd.bitcoincharts.features.charts.domain.model.MetricChartEntry
@@ -72,7 +72,7 @@ class BitcoinLineChart @JvmOverloads constructor(
         setAvoidFirstLastClipping(true)
         setLabelCount(X_AXIS_LABEL_COUNT, true)
         textSize = LABEL_SIZE
-        typeface = context.getFont(R.font.nunito_semibold)
+        typeface = context.getFontCompat(R.font.nunito_semibold)
     }
 
     private fun LineChart.setupYAxis(chart: BitcoinMetricChart) = with(axisLeft) {
@@ -82,7 +82,7 @@ class BitcoinLineChart @JvmOverloads constructor(
         xOffset = Y_AXIS_X_OFFSET
         valueFormatter = YAxisFormatter(chart.type, yAxisFormatterFactory)
         textSize = LABEL_SIZE
-        typeface = context.getFont(R.font.nunito_semibold)
+        typeface = context.getFontCompat(R.font.nunito_semibold)
     }
 
     private fun setDataSet(chart: BitcoinMetricChart) {

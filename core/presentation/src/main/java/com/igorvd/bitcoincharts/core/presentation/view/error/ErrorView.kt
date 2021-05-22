@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.widget.FrameLayout
 import androidx.core.view.isVisible
 import com.igorvd.bitcoincharts.core.presentation.databinding.ViewErrorBinding
-import com.igorvd.chuckfacts.domain.exceptions.MyIOException
 
 class ErrorView @JvmOverloads constructor(
     context: Context,

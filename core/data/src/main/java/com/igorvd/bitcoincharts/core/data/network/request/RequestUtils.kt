@@ -11,6 +11,6 @@ inline fun <T> doRequest(block: () -> T): T {
     } catch (e: IOException) {
         throw MyIOException(e.message, e)
     } catch (e: HttpException) {
-        throw MyHttpErrorException(e.message(), e.code(), e)
+        throw MyHttpErrorException(e.message(), e)
     }
 }

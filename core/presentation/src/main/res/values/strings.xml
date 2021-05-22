@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="error_network">Looks like you have a connection issue. Try again!</string>
+    <string name="error_server">Looks like we could not reach our servers. Try again!</string>
+    <string name="error_generic">Looks like some unexpected error occur.</string>
+    <string name="button_try_again">Try again</string>
+</resources>

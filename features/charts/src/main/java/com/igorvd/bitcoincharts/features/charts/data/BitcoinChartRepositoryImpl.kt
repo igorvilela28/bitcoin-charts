@@ -1,5 +1,6 @@
 package com.igorvd.bitcoincharts.features.charts.data
 
+import com.igorvd.bitcoincharts.core.data.network.request.doRequest
 import com.igorvd.bitcoincharts.features.charts.data.network.api.BlockchainApi
 import com.igorvd.bitcoincharts.features.charts.data.network.mapper.MetricScreenMapper
 import com.igorvd.bitcoincharts.features.charts.data.network.mapper.StatsHomeScreenMapper
@@ -15,13 +16,13 @@ class BitcoinChartRepositoryImpl @Inject constructor(
     private val statsHomeScreenMapper: StatsHomeScreenMapper
 ) : BitcoinChartRepository {
 
-    override suspend fun getBitcoinStatsHomeScreen(): BitcoinStatsHomeScreen {
+    override suspend fun getBitcoinStatsHomeScreen() = doRequest {
         val statsResponse = blockchainApi.getStats()
-        return statsHomeScreenMapper.mapFromStats(statsResponse)
+        statsHomeScreenMapper.mapFromStats(statsResponse)
     }
 
-    override suspend fun getBitcoinMetricScreen(chartType: ChartType): BitcoinMetricScreen {
+    override suspend fun getBitcoinMetricScreen(chartType: ChartType) = doRequest {
         val chartResponse = blockchainApi.getChartData(chartType.id)
-        return metricScreenMapper.mapFromChart(chartResponse, chartType)
+        metricScreenMapper.mapFromChart(chartResponse, chartType)
     }
 }

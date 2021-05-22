@@ -1,6 +1,7 @@
 apply from: "$rootDir/buildsystem/android-library.gradle"
 
 dependencies {
+    implementation project(Modules.coreDomain)
 
     implementation Libs.kotlin
     implementation Libs.coroutines

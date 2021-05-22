@@ -99,7 +99,7 @@ class BitcoinLineChart @JvmOverloads constructor(
             this.setDrawIcons(true)
             setDrawHorizontalHighlightIndicator(false)
             setDrawVerticalHighlightIndicator(true)
-            highLightColor = context.getColorCompat(R.color.black)
+            highLightColor = context.getColorCompat(R.color.grayScale400)
         }
 
         val lineData = LineData(dataset)

@@ -1,14 +1,18 @@
 package com.igorvd.bitcoincharts.features.charts.presentation.chart
 
 import androidx.core.view.isInvisible
+import androidx.core.view.isVisible
 import com.github.mikephil.charting.data.Entry
 import com.github.mikephil.charting.highlight.Highlight
 import com.github.mikephil.charting.listener.OnChartValueSelectedListener
 import com.igorvd.bitcoincharts.core.domain.service.datetime.DateTimeService
+import com.igorvd.bitcoincharts.core.presentation.extensions.launch
 import com.igorvd.bitcoincharts.features.charts.databinding.ActivityChartBinding
 import com.igorvd.bitcoincharts.features.charts.domain.model.BitcoinMetricScreen
 import com.igorvd.bitcoincharts.features.charts.domain.model.MetricChartFormattedEntry
+import com.igorvd.bitcoincharts.features.charts.presentation.chart.model.ChartScreenState
 import com.igorvd.bitcoincharts.features.charts.presentation.chart.view.linechart.formatter.YAxisFormatterFactory
+import com.igorvd.bitcoincharts.features.charts.presentation.home.model.HomeState
 
 class BitcoinChartLayoutContainer(
     private val activity: BitcoinChartActivity,
@@ -39,9 +43,29 @@ class BitcoinChartLayoutContainer(
         }
     }
 
-    fun setScreenContent(bitcoinMetricScreen: BitcoinMetricScreen) = viewBinding.apply {
+    fun setScreenContent(state: ChartScreenState) = viewBinding.apply {
+        state.setViewsVisibility()
+        when (state) {
+            is ChartScreenState.ShowMetricScreen -> state.set()
+            is ChartScreenState.ShowError -> state.set()
+        }
+    }
+
+    fun ChartScreenState.setViewsVisibility() = viewBinding.apply {
+        pbLoading.isVisible = this@setViewsVisibility is ChartScreenState.Loading
+        clContent.isVisible = this@setViewsVisibility is ChartScreenState.ShowMetricScreen
+        errorView.isVisible = this@setViewsVisibility is ChartScreenState.ShowError
+    }
+
+    private fun ChartScreenState.ShowMetricScreen.set() = viewBinding.apply {
         toolbar.tvToolbarTitle.text = bitcoinMetricScreen.title
         tvDescription.text = bitcoinMetricScreen.description
         lineChart.setChart(bitcoinMetricScreen.chart)
+    }
+
+    private fun ChartScreenState.ShowError.set() = viewBinding.apply {
+        errorView.setData(errorViewData) {
+            activity.viewModel.launch { getChartData(activity.chartType) }
+        }
     }
 }

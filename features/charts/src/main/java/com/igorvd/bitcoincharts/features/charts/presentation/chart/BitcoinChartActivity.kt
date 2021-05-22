@@ -5,9 +5,6 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.Lifecycle
-import androidx.lifecycle.lifecycleScope
-import androidx.lifecycle.repeatOnLifecycle
 import com.igorvd.bitcoincharts.core.domain.service.datetime.DateTimeService
 import com.igorvd.bitcoincharts.core.presentation.extensions.collect
 import com.igorvd.bitcoincharts.core.presentation.extensions.extra
@@ -17,15 +14,13 @@ import com.igorvd.bitcoincharts.features.charts.databinding.ActivityChartBinding
 import com.igorvd.bitcoincharts.features.charts.domain.model.ChartType
 import com.igorvd.bitcoincharts.features.charts.presentation.chart.view.linechart.formatter.YAxisFormatterFactory
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.filterNotNull
-import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @AndroidEntryPoint
 class BitcoinChartActivity : AppCompatActivity() {
 
-    private val chartType: ChartType by extra(EXTRA_CHART_TYPE)
+    val chartType: ChartType by extra(EXTRA_CHART_TYPE)
     private val viewBinding: ActivityChartBinding by viewBinding(ActivityChartBinding::inflate)
     val viewModel: BitcoinChartViewModel by viewModels()
 
@@ -43,11 +38,11 @@ class BitcoinChartActivity : AppCompatActivity() {
         setContentView(viewBinding.root)
         layoutContainer.setup()
         setupObservers()
-        viewModel.launch { getChart(chartType) }
+        viewModel.launch { getChartData(chartType) }
     }
 
     private fun setupObservers() = viewModel.apply {
-        collect(chartStateFlow.filterNotNull()) {
+        collect(chartScreenStateFlow.filterNotNull()) {
             layoutContainer.setScreenContent(it)
         }
     }

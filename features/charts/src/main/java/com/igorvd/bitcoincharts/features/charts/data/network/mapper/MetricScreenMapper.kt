@@ -48,7 +48,7 @@ class MetricScreenMapper @Inject constructor(
     }
 
     private fun ChartEntryResponse.formatEntry(chartType: ChartType): MetricChartFormattedEntry {
-        val formattedX = dateTimeService.convertTimestampToDatePattern(x, DatePattern.MM_dd_yy)
+        val formattedX = dateTimeService.convertTimestampToDatePattern(x, DatePattern.MMM_dd_yyyy)
         val formattedY = yMapper.formatYValue(y, chartType)
         return MetricChartFormattedEntry(formattedX, formattedY)
     }

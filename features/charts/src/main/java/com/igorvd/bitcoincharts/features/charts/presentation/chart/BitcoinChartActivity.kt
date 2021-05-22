@@ -26,8 +26,8 @@ import javax.inject.Inject
 class BitcoinChartActivity : AppCompatActivity() {
 
     private val chartType: ChartType by extra(EXTRA_CHART_TYPE)
-    private val viewModel: BitcoinChartViewModel by viewModels()
     private val viewBinding: ActivityChartBinding by viewBinding(ActivityChartBinding::inflate)
+    val viewModel: BitcoinChartViewModel by viewModels()
 
     @Inject
     protected lateinit var dateTimeService: DateTimeService
@@ -35,7 +35,7 @@ class BitcoinChartActivity : AppCompatActivity() {
     @Inject
     protected lateinit var yAxisFormatterFactory: YAxisFormatterFactory
     private val layoutContainer by lazy {
-        BitcoinChartLayoutContainer(viewBinding, dateTimeService, yAxisFormatterFactory)
+        BitcoinChartLayoutContainer(this, viewBinding, dateTimeService, yAxisFormatterFactory)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

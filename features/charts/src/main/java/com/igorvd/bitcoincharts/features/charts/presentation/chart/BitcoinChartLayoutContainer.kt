@@ -11,12 +11,16 @@ import com.igorvd.bitcoincharts.features.charts.domain.model.MetricChartFormatte
 import com.igorvd.bitcoincharts.features.charts.presentation.chart.view.linechart.formatter.YAxisFormatterFactory
 
 class BitcoinChartLayoutContainer(
+    private val activity: BitcoinChartActivity,
     private val viewBinding: ActivityChartBinding,
     private val dateTimeService: DateTimeService,
     private val yAxisFormatterFactory: YAxisFormatterFactory
 ) {
 
     fun setup() = viewBinding.apply {
+        toolbar.ivBackButton.setOnClickListener {
+            activity.finish()
+        }
         lineChart.apply {
             setup(dateTimeService, yAxisFormatterFactory)
             setOnChartValueSelectedListener(object : OnChartValueSelectedListener {
@@ -36,7 +40,7 @@ class BitcoinChartLayoutContainer(
     }
 
     fun setScreenContent(bitcoinMetricScreen: BitcoinMetricScreen) = viewBinding.apply {
-        tvTitle.text = bitcoinMetricScreen.title
+        toolbar.tvToolbarTitle.text = bitcoinMetricScreen.title
         tvDescription.text = bitcoinMetricScreen.description
         lineChart.setChart(bitcoinMetricScreen.chart)
     }

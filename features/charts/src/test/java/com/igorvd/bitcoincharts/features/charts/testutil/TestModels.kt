@@ -5,6 +5,7 @@ import com.igorvd.bitcoincharts.features.charts.data.network.model.ChartResponse
 import com.igorvd.bitcoincharts.features.charts.data.network.model.StatsResponse
 import com.igorvd.bitcoincharts.features.charts.domain.model.BitcoinMetricChart
 import com.igorvd.bitcoincharts.features.charts.domain.model.BitcoinMetricScreen
+import com.igorvd.bitcoincharts.features.charts.domain.model.BitcoinStatsHomeScreen
 import com.igorvd.bitcoincharts.features.charts.domain.model.ChartType
 import com.igorvd.bitcoincharts.features.charts.domain.model.MetricChartEntry
 import com.igorvd.bitcoincharts.features.charts.domain.model.MetricChartFormattedEntry
@@ -44,4 +45,10 @@ val statsResponse = StatsResponse(
     totalBtcSent = 7848876193320,
     estimatedBtcSent = 1400761641078,
     minersRevenueUsd = 588581.58,
+)
+
+val homeScreen = BitcoinStatsHomeScreen(
+    title = "title",
+    description = "description",
+    statsCategories = emptyList()
 )

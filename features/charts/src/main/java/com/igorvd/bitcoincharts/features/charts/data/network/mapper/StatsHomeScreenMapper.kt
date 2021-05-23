@@ -144,8 +144,8 @@ class StatsHomeScreenMapper @Inject constructor(
     }
 
     companion object {
-        private const val BITCOIN_FRACTION_FACTOR = 0.00000001
-        private const val BITCOIN_FRACTION_DIGITS = 8
+        const val BITCOIN_FRACTION_FACTOR = 0.00000001
+        const val BITCOIN_FRACTION_DIGITS = 8
     }
 }
 

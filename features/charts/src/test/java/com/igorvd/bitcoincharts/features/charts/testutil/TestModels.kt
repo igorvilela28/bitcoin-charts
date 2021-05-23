@@ -2,6 +2,7 @@ package com.igorvd.bitcoincharts.features.charts.testutil
 
 import com.igorvd.bitcoincharts.features.charts.data.network.model.ChartEntryResponse
 import com.igorvd.bitcoincharts.features.charts.data.network.model.ChartResponse
+import com.igorvd.bitcoincharts.features.charts.data.network.model.StatsResponse
 import com.igorvd.bitcoincharts.features.charts.domain.model.BitcoinMetricChart
 import com.igorvd.bitcoincharts.features.charts.domain.model.BitcoinMetricScreen
 import com.igorvd.bitcoincharts.features.charts.domain.model.ChartType
@@ -29,4 +30,18 @@ val bitcoinMetricScreen = BitcoinMetricScreen(
         type = ChartType.MARKET_PRICE,
         entries = listOf(metricChartEntry)
     )
+)
+
+val statsResponse = StatsResponse(
+    marketPriceUsd = 40000.00,
+    tradeVolumeUsd = 40000.00,
+    tradeVolumeBtc = 75450.76,
+    nBlocksMined = 2,
+    minutesBetweenBlocks = 4.0,
+    nBtcMined = 1250000000,
+    totalFeesBtc = 207054247,
+    nTx = 5469,
+    totalBtcSent = 7848876193320,
+    estimatedBtcSent = 1400761641078,
+    minersRevenueUsd = 588581.58,
 )

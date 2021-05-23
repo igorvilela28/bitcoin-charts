@@ -29,8 +29,6 @@ class MetricScreenMapper @Inject constructor(
 
         return BitcoinMetricChart(
             type = chartType,
-            unit = chart.unit,
-            period = chart.period,
             entries = mapEntries(chart, chartType)
         )
     }

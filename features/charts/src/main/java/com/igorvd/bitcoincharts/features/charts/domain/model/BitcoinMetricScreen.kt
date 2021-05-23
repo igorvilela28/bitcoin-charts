@@ -8,8 +8,6 @@ data class BitcoinMetricScreen(
 
 data class BitcoinMetricChart(
     val type: ChartType,
-    val unit: String,
-    val period: String,
     val entries: List<MetricChartEntry>
 )
 

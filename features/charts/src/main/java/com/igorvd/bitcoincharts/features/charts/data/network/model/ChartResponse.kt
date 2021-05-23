@@ -5,10 +5,6 @@ import com.squareup.moshi.Json
 data class ChartResponse(
     @field:Json(name = "name")
     val name: String,
-    @field:Json(name = "unit")
-    val unit: String,
-    @field:Json(name = "period")
-    val period: String,
     @field:Json(name = "description")
     val description: String,
     @field:Json(name = "values")

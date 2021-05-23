@@ -35,7 +35,7 @@ object Libs {
 object TestLibs {
     const val jUnit = "junit:junit:${TestVersions.jUnit}"
     const val mockk = "io.mockk:mockk:${TestVersions.mockk}"
-
+    const val mockWebServer = "com.squareup.okhttp3:mockwebserver:${TestVersions.mockWebServer}"
     const val extjUnit = "androidx.test.ext:junit:${TestVersions.extjUnit}"
     const val espressoCore = "androidx.test.espresso:espresso-core:${TestVersions.espressoCore}"
 }

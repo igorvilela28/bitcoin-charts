@@ -34,6 +34,6 @@ class MetricScreenChartYMapper @Inject constructor(
     }
 
     companion object {
-        private const val TOTAL_TRANSACTION_FEES_FRACTION_DIGITS = 3
+        const val TOTAL_TRANSACTION_FEES_FRACTION_DIGITS = 3
     }
 }

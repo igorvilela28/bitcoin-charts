@@ -72,6 +72,11 @@ open class BaseRobot<T : BaseRobot<T>> {
         return this
     }
 
+    fun checkViewContainText(@IdRes viewId: Int, expectedText: String): BaseRobot<T> {
+        onView(withId(viewId)).check(matches(withText(expectedText)))
+        return this
+    }
+
     fun checkViewContainText(@IdRes viewId: Int, index: Int, expectedText: String): BaseRobot<T> {
         onView(withIndex(withId(viewId), index)).check(matches(withText(expectedText)))
         return this

@@ -34,7 +34,5 @@ dependencies {
     testImplementation TestLibs.jUnit
     testImplementation TestLibs.mockk
     testImplementation TestLibs.mockWebServer
-
-    androidTestImplementation TestLibs.extjUnit
-    androidTestImplementation TestLibs.espressoCore
+    testImplementation TestLibs.archCore
 }

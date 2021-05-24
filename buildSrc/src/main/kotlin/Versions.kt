@@ -24,6 +24,7 @@ object Versions {
 }
 
 object TestVersions {
+    const val archCore = "2.1.0"
     const val mockk = "1.11.0"
     const val mockWebServer = "4.9.1"
     const val jacoco = "0.8.7"

@@ -1,16 +1,20 @@
 package com.igorvd.bitcoincharts.core.domain.service.datetime
 
+import com.igorvd.bitcoincharts.core.domain.service.locale.LocaleService
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Locale
 import javax.inject.Inject
 
-class DateTimeServiceImpl @Inject constructor() : DateTimeService {
+class DateTimeServiceImpl @Inject constructor(
+    private val localeService: LocaleService
+) : DateTimeService {
 
     override fun convertTimestampToDatePattern(timestamp: Long, datePattern: DatePattern): String {
-        val calendar = Calendar.getInstance(Locale.ENGLISH)
+        val calendar = Calendar.getInstance(localeService.getLocale())
         calendar.timeInMillis = timestamp * MILLS_FACTOR
-        val date = SimpleDateFormat(datePattern.pattern, Locale.ENGLISH).format(calendar.time)
+        val date =
+            SimpleDateFormat(datePattern.pattern, localeService.getLocale()).format(calendar.time)
         return date
     }
 

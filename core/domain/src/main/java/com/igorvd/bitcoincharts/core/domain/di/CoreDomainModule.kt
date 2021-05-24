@@ -8,6 +8,8 @@ import com.igorvd.bitcoincharts.core.domain.formatter.NumberFormatter
 import com.igorvd.bitcoincharts.core.domain.formatter.NumberFormatterImpl
 import com.igorvd.bitcoincharts.core.domain.service.datetime.DateTimeService
 import com.igorvd.bitcoincharts.core.domain.service.datetime.DateTimeServiceImpl
+import com.igorvd.bitcoincharts.core.domain.service.locale.LocaleService
+import com.igorvd.bitcoincharts.core.domain.service.locale.LocaleServiceImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -34,6 +36,12 @@ object CoreDomainModule {
     @Singleton
     fun providesNumberFormatter(numberFormatterImpl: NumberFormatterImpl): NumberFormatter {
         return numberFormatterImpl
+    }
+
+    @Provides
+    @Singleton
+    fun provideLocaleService(localeService: LocaleServiceImpl): LocaleService {
+        return localeService
     }
 
     @Provides

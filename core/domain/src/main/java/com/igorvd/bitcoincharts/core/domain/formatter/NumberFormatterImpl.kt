@@ -1,21 +1,24 @@
 package com.igorvd.bitcoincharts.core.domain.formatter
 
 import android.icu.text.CompactDecimalFormat
+import com.igorvd.bitcoincharts.core.domain.service.locale.LocaleService
 import java.text.NumberFormat
 import java.util.Locale
 import javax.inject.Inject
 import kotlin.math.roundToLong
 
-class NumberFormatterImpl @Inject constructor() : NumberFormatter {
+class NumberFormatterImpl @Inject constructor(
+    private val localeService: LocaleService
+) : NumberFormatter {
 
     override fun format(value: Int): String {
-        return NumberFormat.getInstance(Locale.getDefault()).format(value)
+        return NumberFormat.getInstance(localeService.getLocale()).format(value)
     }
 
     override fun formatCompact(value: Double): String {
         val compactDecimalFormat =
             CompactDecimalFormat.getInstance(
-                Locale.ENGLISH,
+                localeService.getLocale(),
                 CompactDecimalFormat.CompactStyle.SHORT
             ).apply {
                 val significantDigits = getSignificantDigits(value)

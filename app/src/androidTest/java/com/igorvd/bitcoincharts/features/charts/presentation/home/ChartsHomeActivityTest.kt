@@ -3,6 +3,7 @@ package com.igorvd.bitcoincharts.features.charts.presentation.home
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.igorvd.bitcoincharts.R
 import com.igorvd.bitcoincharts.features.charts.data.di.ChartsDataModule
+import com.igorvd.bitcoincharts.features.charts.domain.model.ChartType
 import com.igorvd.bitcoincharts.testutil.rule.IntentsRule
 import com.igorvd.bitcoincharts.testutil.rule.MockWebServerRule
 import dagger.hilt.android.testing.HiltAndroidRule
@@ -40,6 +41,7 @@ class ChartsHomeActivityTest {
             .givenStats200Response()
             .launchActivity()
             .thenTitleDisplayed(R.string.home_title)
+            .thenErrorViewHidden()
             .thenDescriptionDisplayed(R.string.home_description)
             .thenCategoryTitleAtPositionDisplayed(0, R.string.home_stats_category_market_summary)
             .thenMetricAtPositionDisplayed(
@@ -149,5 +151,14 @@ class ChartsHomeActivityTest {
             .launchActivity()
             .whenClickOnTryAgain()
             .thenTitleDisplayed(R.string.home_title)
+    }
+
+    @Test
+    fun shouldOpenChartsScreen_whenClickOnViewChart() {
+        robot
+            .givenStats200Response()
+            .launchActivity()
+            .whenClickOnViewChart(0)
+            .thenBitcoinChartActivityOpened(ChartType.MARKET_PRICE)
     }
 }

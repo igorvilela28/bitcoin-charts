@@ -48,7 +48,7 @@ class BitcoinChartActivity : AppCompatActivity() {
     }
 
     companion object {
-        private const val EXTRA_CHART_TYPE = "chart_type"
+        const val EXTRA_CHART_TYPE = "chart_type"
         fun newIntent(context: Context, chartType: ChartType): Intent {
             return Intent(context, BitcoinChartActivity::class.java).apply {
                 putExtra(EXTRA_CHART_TYPE, chartType)

@@ -43,6 +43,7 @@ import androidx.test.uiautomator.By
 import androidx.test.uiautomator.UiDevice
 import androidx.test.uiautomator.Until
 import com.igorvd.bitcoincharts.testutil.assertion.hasItemCount
+import com.igorvd.bitcoincharts.testutil.matcher.NestedScrollAction
 import com.igorvd.bitcoincharts.testutil.matcher.clickChildViewWithId
 import com.igorvd.bitcoincharts.testutil.matcher.withIndex
 import com.igorvd.bitcoincharts.testutil.matcher.withRecyclerViewChildAt
@@ -83,6 +84,11 @@ open class BaseRobot<T : BaseRobot<T>> {
 
     fun checkIsHidden(@IdRes viewId: Int): BaseRobot<T> {
         onView(withId(viewId)).check(matches(not(isDisplayed())))
+        return this
+    }
+
+    fun checkIsHidden(@IdRes viewId: Int, index: Int): BaseRobot<T> {
+        onView(withIndex(withId(viewId), index)).check(matches(not(isDisplayed())))
         return this
     }
 
@@ -265,7 +271,7 @@ open class BaseRobot<T : BaseRobot<T>> {
 
     fun checkViewWithTextIsDisplayedAndChecked(text: String): BaseRobot<T> {
         onView(AllOf.allOf(withText(text), isDisplayed()))
-            .check(matches(ViewMatchers.isChecked()))
+            .check(matches(isChecked()))
         return this
     }
 
@@ -277,6 +283,11 @@ open class BaseRobot<T : BaseRobot<T>> {
 
     fun scrollTo(@IdRes viewId: Int): BaseRobot<T> {
         onView(withId(viewId)).perform(scrollTo())
+        return this
+    }
+
+    fun nestedScrollTo(@IdRes viewId: Int, index: Int): BaseRobot<T> {
+        onView(withIndex(withId(viewId), index)).perform(NestedScrollAction())
         return this
     }
 

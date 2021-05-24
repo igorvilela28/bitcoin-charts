@@ -67,17 +67,7 @@ open class BaseRobot<T : BaseRobot<T>> {
         return this
     }
 
-    fun checkDoesNotExist(@IdRes viewId: Int): BaseRobot<T> {
-        onView(withId(viewId)).check(doesNotExist())
-        return this
-    }
-
     fun checkViewContainText(@IdRes viewId: Int, @StringRes expectedText: Int): BaseRobot<T> {
-        onView(withId(viewId)).check(matches(withText(expectedText)))
-        return this
-    }
-
-    fun checkViewContainText(@IdRes viewId: Int, expectedText: String): BaseRobot<T> {
         onView(withId(viewId)).check(matches(withText(expectedText)))
         return this
     }
@@ -112,19 +102,6 @@ open class BaseRobot<T : BaseRobot<T>> {
         return this
     }
 
-    fun assertItTakeMeToScreen(targetClass: Class<*>) {
-        intended(hasComponent(targetClass.name))
-    }
-
-    fun assertItTakeMeToScreen(extra: String) {
-        intended(allOf(hasAction(extra)))
-    }
-
-    inline fun <reified A : Activity> checkActualScreen(): BaseRobot<T> {
-        intended(hasComponent(A::class.java.name))
-        return this
-    }
-
     fun checkRecyclerViewAtPositionDisplayed(
         @IdRes recyclerViewId: Int,
         @IdRes viewId: Int,
@@ -132,15 +109,6 @@ open class BaseRobot<T : BaseRobot<T>> {
     ): BaseRobot<T> = apply {
         onView(withRecyclerViewChildAt(recyclerViewId, viewId, position))
             .check(matches(isDisplayed()))
-    }
-
-    fun checkRecyclerViewAtPositionHidden(
-        @IdRes recyclerViewId: Int,
-        @IdRes viewId: Int,
-        position: Int
-    ): BaseRobot<T> = apply {
-        onView(withRecyclerViewChildAt(recyclerViewId, viewId, position))
-            .check(matches(not(isDisplayed())))
     }
 
     fun checkRecyclerViewAtPositionWithText(
@@ -152,33 +120,6 @@ open class BaseRobot<T : BaseRobot<T>> {
         onView(withRecyclerViewChildAt(recyclerViewId, viewId, position))
             .check(matches(withText(text)))
     }
-
-    fun clickAtPosition(
-        @IdRes recyclerViewId: Int,
-        @IdRes viewId: Int,
-        position: Int
-    ): BaseRobot<T> = apply {
-        onView(withRecyclerViewChildAt(recyclerViewId, viewId, position))
-            .perform(click())
-    }
-
-    fun <VH : RecyclerView.ViewHolder> scrollRecyclerViewToPosition(
-        @IdRes recyclerViewId: Int,
-        position: Int
-    ): BaseRobot<T> = apply {
-        onView(withId(recyclerViewId)).perform(RecyclerViewActions.scrollToPosition<VH>(position))
-    }
-
-    fun checkRecyclerViewCount(@IdRes recyclerViewId: Int, count: Int): BaseRobot<T> = apply {
-        onView(withId(recyclerViewId)).check(hasItemCount(count))
-    }
-
-    fun checkRecyclerViewCount(@IdRes recyclerViewId: Int, index: Int, count: Int): BaseRobot<T> =
-        apply {
-            onView(withIndex(withId(recyclerViewId), index)).check(hasItemCount(count))
-        }
-
-    // endregion
 
     fun getStringById(@StringRes stringId: Int, vararg args: Any): String {
         val context = InstrumentationRegistry.getInstrumentation().targetContext

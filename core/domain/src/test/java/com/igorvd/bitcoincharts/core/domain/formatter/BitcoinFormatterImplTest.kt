@@ -4,7 +4,7 @@ import com.igorvd.bitcoincharts.core.domain.service.locale.LocaleService
 import io.mockk.MockKAnnotations
 import io.mockk.every
 import io.mockk.impl.annotations.MockK
-import org.junit.Assert.*
+import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
 import java.util.Locale
@@ -36,6 +36,4 @@ class BitcoinFormatterImplTest {
         val formattedValue = formatter.format(value, 8, false)
         assertEquals("2.05000000", formattedValue)
     }
-
-
 }

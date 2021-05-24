@@ -1,0 +1,13 @@
+{
+  "market_price_usd": 40395.31,
+  "trade_volume_usd": 400000000.00,
+  "trade_volume_btc": 75450.76,
+  "n_btc_mined": 1250000000,
+  "minutes_between_blocks": 4.0,
+  "n_blocks_mined": 2,
+  "total_fees_btc": 207054247,
+  "n_tx": 5469,
+  "total_btc_sent": 7848876193320,
+  "estimated_btc_sent": 1400761641078,
+  "miners_revenue_usd": 588581.58
+}

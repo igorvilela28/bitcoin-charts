@@ -33,7 +33,7 @@ class StatsCategoryAdapter(
     ) : RecyclerView.ViewHolder(viewBinding.root) {
 
         fun bind(item: StatsCategory) = viewBinding.apply {
-            tvTitle.text = item.title
+            tvChartsCategoryTitle.text = item.title
             rvCategoryMetrics.apply {
                 layoutManager = LinearLayoutManager(context)
                 adapter = StatsMetricAdapter(item.metrics, onClick)

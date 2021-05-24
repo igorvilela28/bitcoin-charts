@@ -16,8 +16,7 @@ android {
         targetSdkVersion AppConfig.targetSdkVersion
         versionCode AppConfig.versionCode
         versionName AppConfig.versionName
-
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner AppConfig.testRunner
     }
 
     buildTypes {
@@ -35,6 +34,11 @@ android {
     }
     kotlinOptions {
         jvmTarget = '1.8'
+    }
+
+    testOptions {
+        animationsDisabled true
+        execution 'ANDROIDX_TEST_ORCHESTRATOR'
     }
 }
 
@@ -63,4 +67,11 @@ dependencies {
 
     androidTestImplementation TestLibs.extjUnit
     androidTestImplementation TestLibs.espressoCore
+    androidTestImplementation TestLibs.espressoContrib
+    androidTestImplementation TestLibs.espressoIntents
+    androidTestImplementation TestLibs.uiAutomator
+    androidTestImplementation TestLibs.hiltTest
+    kaptAndroidTest Libs.hiltCompiler
+    androidTestImplementation TestLibs.mockWebServer
+    androidTestUtil "androidx.test:orchestrator:1.3.0"
 }

@@ -36,6 +36,11 @@ object TestLibs {
     const val jUnit = "junit:junit:${TestVersions.jUnit}"
     const val mockk = "io.mockk:mockk:${TestVersions.mockk}"
     const val mockWebServer = "com.squareup.okhttp3:mockwebserver:${TestVersions.mockWebServer}"
+
     const val extjUnit = "androidx.test.ext:junit:${TestVersions.extjUnit}"
-    const val espressoCore = "androidx.test.espresso:espresso-core:${TestVersions.espressoCore}"
+    const val espressoCore = "androidx.test.espresso:espresso-core:${TestVersions.espresso}"
+    const val espressoContrib = "androidx.test.espresso:espresso-contrib:${TestVersions.espresso}"
+    const val espressoIntents = "androidx.test.espresso:espresso-intents:${TestVersions.espresso}"
+    const val hiltTest = "com.google.dagger:hilt-android-testing:${Versions.hilt}"
+    const val uiAutomator = "androidx.test.uiautomator:uiautomator:${TestVersions.uiautomator}"
 }

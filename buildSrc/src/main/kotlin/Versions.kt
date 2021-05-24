@@ -29,5 +29,6 @@ object TestVersions {
     const val jacoco = "0.8.7"
     const val jUnit = "4.12"
     const val extjUnit =  "1.1.2"
-    const val espressoCore = "3.3.0"
+    const val espresso = "3.3.0"
+    const val uiautomator = "2.2.0"
 }

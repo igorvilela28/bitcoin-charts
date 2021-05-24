@@ -28,8 +28,8 @@ class ChartsHomeLayoutContainer(
     }
 
     private fun HomeState.ShowStats.set() = viewBinding.apply {
-        tvTitle.text = homeScreen.title
-        tvDescription.text = homeScreen.description
+        tvChartsHomeTitle.text = homeScreen.title
+        tvChartsHomeDescription.text = homeScreen.description
         rvStatsCategories.apply {
             layoutManager = LinearLayoutManager(rvStatsCategories.context)
             adapter = StatsCategoryAdapter(homeScreen.statsCategories) { chartType ->

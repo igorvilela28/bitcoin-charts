@@ -53,7 +53,7 @@ class BitcoinChartLayoutContainer(
 
     private fun ChartScreenState.ShowMetricScreen.set() = viewBinding.apply {
         toolbar.tvToolbarTitle.text = bitcoinMetricScreen.title
-        tvDescription.text = bitcoinMetricScreen.description
+        tvChartDescription.text = bitcoinMetricScreen.description
         lineChart.setChart(bitcoinMetricScreen.chart)
     }
 

@@ -1,12 +1,17 @@
 package com.igorvd.bitcoincharts.testutil.matcher
 
 import android.view.View
+import androidx.annotation.DrawableRes
 import androidx.annotation.IdRes
 import androidx.test.espresso.UiController
 import androidx.test.espresso.ViewAction
 import org.hamcrest.Description
 import org.hamcrest.Matcher
 import org.hamcrest.TypeSafeMatcher
+
+fun withDrawable(@DrawableRes drawableRes: Int): TypeSafeMatcher<View> {
+    return DrawableMatcher(drawableRes)
+}
 
 fun withIndex(matcher: Matcher<View>, index: Int): Matcher<View> {
     return object : TypeSafeMatcher<View>() {

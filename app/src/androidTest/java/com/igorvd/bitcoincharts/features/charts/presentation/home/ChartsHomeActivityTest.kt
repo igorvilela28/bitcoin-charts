@@ -118,4 +118,36 @@ class ChartsHomeActivityTest {
                 true
             )
     }
+
+    @Test
+    fun shouldShowErrorLayoutWithServerError_whenApiResponse500() {
+        robot
+            .givenStats500Response()
+            .launchActivity()
+            .thenErrorViewDisplayed()
+            .thenErrorImgDisplayed(R.drawable.ic_error_server)
+            .thenErrorMessageDisplayed(R.string.error_server)
+            .thenTryAgainButtonDisplayed()
+    }
+
+    @Test
+    fun shouldShowErrorLayoutWithNetworkError_whenIOException() {
+        robot
+            .givenIOError()
+            .launchActivity()
+            .thenErrorViewDisplayed()
+            .thenErrorImgDisplayed(R.drawable.ic_error_networking)
+            .thenErrorMessageDisplayed(R.string.error_network)
+            .thenTryAgainButtonDisplayed()
+    }
+
+    @Test
+    fun shouldShowHomeScreen_whenClickOnTryAgain() {
+        robot
+            .givenIOError()
+            .givenStats200Response()
+            .launchActivity()
+            .whenClickOnTryAgain()
+            .thenTitleDisplayed(R.string.home_title)
+    }
 }

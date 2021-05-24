@@ -23,16 +23,16 @@ class ChartsHomeActivityRobot(private val server: MockWebServer) :
         server.enqueueResponse(response, 200)
     }
 
-    fun givenStats500Response(amount: Int = 1) = apply {
-        for (i in 0..amount) {
-            server.enqueueResponse("{}", 500)
-        }
+    fun givenStats500Response() = apply {
+        server.enqueueResponse("{}", 500)
     }
 
-    fun givenIOError(amount: Int = 1) = apply {
-        for (i in 0..amount) {
-            server.enqueueIOError("{}")
-        }
+    fun givenIOError() = apply {
+        server.enqueueIOError("{}")
+    }
+
+    fun whenClickOnTryAgain() = apply {
+        clickOnView(R.id.btTryAgain)
     }
 
     fun thenTitleDisplayed(titleRes: Int) = apply {
@@ -67,7 +67,6 @@ class ChartsHomeActivityRobot(private val server: MockWebServer) :
         viewChartButtonVisible: Boolean
     ) =
         apply {
-
             nestedScrollTo(R.id.tvValue, position)
             checkViewContainText(R.id.tvLabel, position, labelRes)
             checkViewContainText(R.id.tvValue, position, value)
@@ -77,4 +76,27 @@ class ChartsHomeActivityRobot(private val server: MockWebServer) :
                 checkIsHidden(R.id.tvViewChart, position)
             }
         }
+
+    fun thenErrorViewDisplayed() = apply {
+        checkIsHidden(R.id.nsvRoot)
+        checkIsDisplayed(R.id.errorView)
+    }
+
+    fun thenErrorViewHidden() = apply {
+        checkIsHidden(R.id.errorView)
+    }
+
+    fun thenErrorImgDisplayed(drawableRes: Int) = apply {
+        checkIsDisplayed(R.id.ivErrorIcon)
+        checkWithDrawable(R.id.ivErrorIcon, drawableRes)
+    }
+
+    fun thenErrorMessageDisplayed(textRes: Int) = apply {
+        checkIsDisplayed(R.id.tvErrorMessage)
+        checkViewContainText(R.id.tvErrorMessage, textRes)
+    }
+
+    fun thenTryAgainButtonDisplayed() = apply {
+        checkIsDisplayed(R.id.btTryAgain)
+    }
 }

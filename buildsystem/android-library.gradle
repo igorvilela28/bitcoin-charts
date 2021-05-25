@@ -3,7 +3,6 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-parcelize'
 apply plugin: 'kotlin-kapt'
 apply plugin: 'dagger.hilt.android.plugin'
-apply from: "$rootDir/tools/jacoco.gradle"
 apply from: "$rootDir/tools/detekt/detekt.gradle"
 
 android {

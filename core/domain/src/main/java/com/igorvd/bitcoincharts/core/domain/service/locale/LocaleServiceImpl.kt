@@ -5,6 +5,6 @@ import javax.inject.Inject
 
 class LocaleServiceImpl @Inject constructor() : LocaleService {
     override fun getLocale(): Locale {
-        return Locale.ENGLISH
+        return Locale.US
     }
 }

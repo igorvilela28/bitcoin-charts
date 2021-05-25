@@ -21,7 +21,7 @@ class BitcoinFormatterImplTest {
     @Before
     fun setup() {
         MockKAnnotations.init(this)
-        every { localeService.getLocale() } returns Locale.ENGLISH
+        every { localeService.getLocale() } returns Locale.US
         formatter = BitcoinFormatterImpl(localeService)
     }
 

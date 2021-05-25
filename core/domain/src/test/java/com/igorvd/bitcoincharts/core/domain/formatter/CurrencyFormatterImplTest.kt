@@ -21,13 +21,14 @@ class CurrencyFormatterImplTest {
     @Before
     fun setup() {
         MockKAnnotations.init(this)
-        every { localeService.getLocale() } returns Locale.ENGLISH
+        every { localeService.getLocale() } returns Locale.US
         formatter = CurrencyFormatterImpl(localeService)
     }
 
     @Test
     fun `should format value into USD currency`() {
         val formattedValue = formatter.formatUSD(value)
-        assertEquals("$2,000.05", formattedValue)
+        println("Igor - formatted: $formattedValue")
+        assertEquals("failed, formatted is: $formattedValue","$2,000.05", formattedValue)
     }
 }

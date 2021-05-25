@@ -31,11 +31,11 @@ class NumberFormatterImplTest {
         mockkStatic(CompactDecimalFormat::class)
         every {
             CompactDecimalFormat.getInstance(
-                Locale.ENGLISH,
+                Locale.US,
                 CompactDecimalFormat.CompactStyle.SHORT
             )
         } returns compactDecimalFormat
-        every { localeService.getLocale() } returns Locale.ENGLISH
+        every { localeService.getLocale() } returns Locale.US
         formatter = NumberFormatterImpl(localeService)
     }
 

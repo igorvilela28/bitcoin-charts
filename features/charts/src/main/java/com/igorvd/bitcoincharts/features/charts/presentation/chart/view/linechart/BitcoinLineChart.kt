@@ -88,7 +88,6 @@ class BitcoinLineChart @JvmOverloads constructor(
     private fun setDataSet(chart: BitcoinMetricChart) {
         val dataset = LineDataSet(mapEntries(chart.entries), "dataset").apply {
             setDrawValues(false)
-            setDrawIcons(false)
             lineWidth = DATA_SET_LINE_WIDTH
             setColor(context.getColorCompat(R.color.purple_500))
             this.mode = LineDataSet.Mode.CUBIC_BEZIER

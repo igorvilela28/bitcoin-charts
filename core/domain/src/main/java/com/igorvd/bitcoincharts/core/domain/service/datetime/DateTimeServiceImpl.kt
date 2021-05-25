@@ -3,7 +3,6 @@ package com.igorvd.bitcoincharts.core.domain.service.datetime
 import com.igorvd.bitcoincharts.core.domain.service.locale.LocaleService
 import java.text.SimpleDateFormat
 import java.util.Calendar
-import java.util.Locale
 import javax.inject.Inject
 
 class DateTimeServiceImpl @Inject constructor(

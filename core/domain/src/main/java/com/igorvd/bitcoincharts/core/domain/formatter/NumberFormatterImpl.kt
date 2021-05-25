@@ -3,7 +3,6 @@ package com.igorvd.bitcoincharts.core.domain.formatter
 import android.icu.text.CompactDecimalFormat
 import com.igorvd.bitcoincharts.core.domain.service.locale.LocaleService
 import java.text.NumberFormat
-import java.util.Locale
 import javax.inject.Inject
 import kotlin.math.roundToLong
 

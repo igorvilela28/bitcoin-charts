@@ -21,9 +21,19 @@ The main technologies and concepts used are:
 
 For a list of all project dependencies, you may run this gradle command: `./gradlew <module>:dependencies` where ***module*** is one of the gradle modules on this project.
 
+## Design and architecture
+
+The project is modularized following a feature module approach and the [Presentation-Domain-Data](https://martinfowler.com/bliki/PresentationDomainDataLayering.html) layering. This was decided to make easier to scale the application.
+
+For code that could be shared for each feature, we have the core package, with core modules for data, domain and presentation layers.
+
+The feature modules is also packaged with these 3 layers. This way, we make clear the layering approach on all application.
+
+The project uses the [Blockchain API](https://www.blockchain.com/api/charts_api) to retrieve the data shown. We've applied some concepts from the [Clean Architecture](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html), which it was decided to transform the data from the API on models that deliver for the upper layers a more well-formated data. This way, on the presentation layer, we will have a passive-view approach, making it easier to test and develop.
+
 ## Setup
 
-This application was built using the Android Gradle Plugin 3.5.3, Gradle 6.7.1 and Kotlin 1.5.0. In order to import it into Android Studio, make sure your setup meets these requirements. It also makes heavy use of the AndroidX libraries and it is important that the [jetifier](https://developer.android.com/studio/command-line/jetifier) is enabled on the [gradle.properties](https://github.com/igorvilela28/Chuck-Norris-Facts/blob/master/gradle.properties) file.
+This application was built using the Android Gradle Plugin 4.2.0, Gradle 6.7.1 and Kotlin 1.5.0. In order to import it into Android Studio, make sure your setup meets these requirements.
 
 ## Build and tests
 

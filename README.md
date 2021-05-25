@@ -1,5 +1,5 @@
 # Bitcoin metrics charts
-
+[![Build Status](https://app.bitrise.io/app/0ee68b53defe503b.svg?token=-yTimGU8866W2IHGnr0kWw)](https://app.bitrise.io/app/0ee68b53defe503b)
 
 The goal of this project is to demonstrate skills on Android development as well as to apply some of the best practices in Mobile development.
 

@@ -23,13 +23,13 @@ For a list of all project dependencies, you may run this gradle command: `./grad
 
 ## Design and architecture
 
-The project is modularized following a feature module approach and the [Presentation-Domain-Data](https://martinfowler.com/bliki/PresentationDomainDataLayering.html) layering. This was decided to make easier to scale the application.
+The project is modularized following a feature module approach and the [Presentation-Domain-Data](https://martinfowler.com/bliki/PresentationDomainDataLayering.html) layering. This was decided to make it easier to scale the application.
 
-For code that could be shared for each feature, we have the core package, with core modules for data, domain and presentation layers.
+For code that could be shared for each feature, we have the core package, with core modules for data, domain, and presentation layers.
 
-The feature modules is also packaged with these 3 layers. This way, we make clear the layering approach on all application.
+The feature modules are also packaged with these 3 layers. This way, we make clear the layering approach on all application.
 
-The project uses the [Blockchain API](https://www.blockchain.com/api/charts_api) to retrieve the data shown. We've applied some concepts from the [Clean Architecture](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html), which it was decided to transform the data from the API on models that deliver for the upper layers a more well-formated data. This way, on the presentation layer, we will have a passive-view approach, making it easier to test and develop.
+The project uses the [Blockchain API](https://www.blockchain.com/api/charts_api) to retrieve the data shown. We've applied some concepts from the [Clean Architecture](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html), which it was decided to transform the data from the API on models that deliver for the upper layers a more well-formatted data. This way, on the presentation layer, we will have a passive-view approach, making it easier to test and develop.
 
 ## Setup
 

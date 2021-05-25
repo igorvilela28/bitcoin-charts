@@ -5,9 +5,7 @@ import com.igorvd.bitcoincharts.core.presentation.view.error.ErrorViewExceptionM
 import com.igorvd.bitcoincharts.features.charts.domain.model.ChartType
 import com.igorvd.bitcoincharts.features.charts.domain.usecase.GetMetricScreenUseCase
 import com.igorvd.bitcoincharts.features.charts.presentation.chart.model.ChartScreenState
-import com.igorvd.bitcoincharts.features.charts.presentation.home.model.HomeState
 import com.igorvd.bitcoincharts.features.charts.testutil.bitcoinMetricScreen
-import com.igorvd.bitcoincharts.features.charts.testutil.homeScreen
 import io.mockk.Called
 import io.mockk.MockKAnnotations
 import io.mockk.coEvery
@@ -17,7 +15,7 @@ import io.mockk.every
 import io.mockk.impl.annotations.MockK
 import io.mockk.verify
 import kotlinx.coroutines.runBlocking
-import org.junit.Assert.*
+import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
 

@@ -15,7 +15,7 @@ The main technologies and concepts used are:
 - [Coroutines](https://github.com/Kotlin/kotlinx.coroutines)
 - [Android Architecture Components](https://developer.android.com/topic/libraries/architecture) (ViewModel)
 - Dependency injection using [Hilt](https://dagger.dev/hilt/)
-- Unit tests using [Junit](https://junit.org/junit4/) + [MockK](https://mockk.io/) + [Robolectric](http://robolectric.org/)
+- Unit tests using [Junit](https://junit.org/junit4/) + [MockK](https://mockk.io/)
 - Integration tests using [Espresso]() and following the [Robot Pattern](https://jakewharton.com/testing-robots/)
 - [MockWebServer](https://github.com/square/okhttp/tree/master/mockwebserver)
 

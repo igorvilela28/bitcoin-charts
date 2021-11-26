@@ -10,7 +10,7 @@ class NumberFormatterImpl @Inject constructor(
     private val localeService: LocaleService
 ) : NumberFormatter {
 
-    override fun format(value: Int): String {
+    override fun format(value: Long): String {
         return NumberFormat.getInstance(localeService.getLocale()).format(value)
     }
 

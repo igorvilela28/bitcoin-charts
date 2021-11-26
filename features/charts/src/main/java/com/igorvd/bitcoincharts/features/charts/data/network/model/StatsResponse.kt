@@ -10,15 +10,15 @@ data class StatsResponse(
     @field:Json(name = "trade_volume_btc")
     val tradeVolumeBtc: Double,
     @field:Json(name = "n_btc_mined")
-    val nBtcMined: Int,
+    val nBtcMined: Long,
     @field:Json(name = "minutes_between_blocks")
     val minutesBetweenBlocks: Double,
     @field:Json(name = "n_blocks_mined")
-    val nBlocksMined: Int,
+    val nBlocksMined: Long,
     @field:Json(name = "total_fees_btc")
-    val totalFeesBtc: Int,
+    val totalFeesBtc: Long,
     @field:Json(name = "n_tx")
-    val nTx: Int,
+    val nTx: Long,
     @field:Json(name = "total_btc_sent")
     val totalBtcSent: Long,
     @field:Json(name = "estimated_btc_sent")
